@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//API de criptografia
 using Org.BouncyCastle.Crypto.Prng;
 
 namespace SysPecNSLib
@@ -52,10 +53,13 @@ namespace SysPecNSLib
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_insert";
+            //AddWithValue: adicionar um parâmetro com nome e valor, ("string", objeto)
             cmd.Parameters.AddWithValue("spnome", Nome);
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spsenha", Senha);
             cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
+            //Para criar um SqlDataReader, você deve chamar o ExecuteReader: método do SqlCommand objeto, em vez de usar diretamente um construtor.
+            //Lê um fluxo de encaminhamento de linhas com base em um banco de dados
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
