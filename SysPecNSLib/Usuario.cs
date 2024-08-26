@@ -9,6 +9,7 @@ using Org.BouncyCastle.Crypto.Prng;
 
 namespace SysPecNSLib
 {
+    //private static mysqlcommand comando = Banco.Abrir();
     public class Usuario
     {
      
@@ -53,13 +54,14 @@ namespace SysPecNSLib
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_insert";
-            //AddWithValue: adicionar um parâmetro com nome e valor, ("string", objeto)
+            //AddWithValue: adicionar um parâmetro com nome e valor, ("nome do parametro no banco", objeto)
             cmd.Parameters.AddWithValue("spnome", Nome);
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spsenha", Senha);
             cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
             //Para criar um SqlDataReader, você deve chamar o ExecuteReader: método do SqlCommand objeto, em vez de usar diretamente um construtor.
             //Lê um fluxo de encaminhamento de linhas com base em um banco de dados
+            //dr = datareader
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -136,16 +138,38 @@ namespace SysPecNSLib
             return usuario;
         }
         public void Atualizar() 
-        { 
+        {
             // usuario: nome, senha, nível...
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_altera";
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spsenha", Senha);
+            cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
+            //Parâmetros de Saída
+            //cmd.Parameters.Add("spid", MySqlDbType.VarChar).Direction = ParameterDirection.Output;
+            //ExecuteNonQuery: quando a procedure não retorna nenhum dado
+            cmd.ExecuteNonQuery();
+
+            cmd.Connection.Close();
+
         }
-        public void Arquivar()
-        { 
-        
+        public static void Arquivar(int id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType |= CommandType.Text;
+            cmd.CommandText = $"update usuarios set ativo = 0 where id = {id}";
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
-        public void Restaurar() 
-        { 
-        
+        public static void Restaurar(int id) 
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType |= CommandType.Text;
+            cmd.CommandText = $"update usuarios set ativo = 1 where id = {id}";
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
 
