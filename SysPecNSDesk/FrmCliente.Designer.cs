@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             txtId = new TextBox();
             txtNome = new TextBox();
             txtCpf = new TextBox();
@@ -50,40 +52,44 @@
             clnEmail = new DataGridViewTextBoxColumn();
             clnDataNasc = new DataGridViewTextBoxColumn();
             clnAtivo = new DataGridViewCheckBoxColumn();
+            btnEditar = new Button();
+            txtBusca = new TextBox();
+            label7 = new Label();
+            btnDeletar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Location = new Point(25, 38);
+            txtId.Location = new Point(78, 42);
             txtId.Name = "txtId";
             txtId.Size = new Size(51, 23);
             txtId.TabIndex = 0;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(25, 89);
+            txtNome.Location = new Point(78, 93);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(491, 23);
+            txtNome.Size = new Size(457, 23);
             txtNome.TabIndex = 1;
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(25, 142);
+            txtCpf.Location = new Point(578, 93);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(166, 23);
             txtCpf.TabIndex = 2;
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(25, 199);
+            txtTelefone.Location = new Point(420, 147);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(166, 23);
             txtTelefone.TabIndex = 3;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(221, 142);
+            txtEmail.Location = new Point(78, 147);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(295, 23);
             txtEmail.TabIndex = 4;
@@ -91,7 +97,7 @@
             // dtpDataNasc
             // 
             dtpDataNasc.Format = DateTimePickerFormat.Short;
-            dtpDataNasc.Location = new Point(221, 199);
+            dtpDataNasc.Location = new Point(78, 205);
             dtpDataNasc.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             dtpDataNasc.Name = "dtpDataNasc";
             dtpDataNasc.Size = new Size(135, 23);
@@ -100,7 +106,7 @@
             // chkAtivo
             // 
             chkAtivo.AutoSize = true;
-            chkAtivo.Location = new Point(386, 201);
+            chkAtivo.Location = new Point(244, 209);
             chkAtivo.Name = "chkAtivo";
             chkAtivo.Size = new Size(54, 19);
             chkAtivo.TabIndex = 6;
@@ -110,7 +116,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 20);
+            label1.Location = new Point(78, 24);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 7;
@@ -119,7 +125,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 71);
+            label2.Location = new Point(78, 75);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 8;
@@ -128,7 +134,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(25, 124);
+            label3.Location = new Point(578, 75);
             label3.Name = "label3";
             label3.Size = new Size(28, 15);
             label3.TabIndex = 9;
@@ -137,7 +143,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(221, 124);
+            label4.Location = new Point(78, 129);
             label4.Name = "label4";
             label4.Size = new Size(36, 15);
             label4.TabIndex = 10;
@@ -146,7 +152,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(25, 181);
+            label5.Location = new Point(420, 129);
             label5.Name = "label5";
             label5.Size = new Size(51, 15);
             label5.TabIndex = 11;
@@ -155,7 +161,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(221, 181);
+            label6.Location = new Point(78, 187);
             label6.Name = "label6";
             label6.Size = new Size(114, 15);
             label6.TabIndex = 12;
@@ -163,24 +169,36 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(203, 255);
+            btnInserir.Location = new Point(335, 205);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(132, 23);
+            btnInserir.Size = new Size(115, 23);
             btnInserir.TabIndex = 13;
-            btnInserir.Text = "Inserir";
+            btnInserir.Text = "&Inserir";
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += btnInserir_Click;
             // 
             // dgvClientes
             // 
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnAtivo });
-            dgvClientes.Location = new Point(25, 324);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvClientes.Location = new Point(78, 304);
             dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
             dgvClientes.RowHeadersVisible = false;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(666, 286);
             dgvClientes.TabIndex = 14;
-            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // clnId
             // 
@@ -196,7 +214,7 @@
             clnNome.HeaderText = "Nome";
             clnNome.Name = "clnNome";
             clnNome.ReadOnly = true;
-            clnNome.Width = 150;
+            clnNome.Width = 160;
             // 
             // clnCpf
             // 
@@ -223,10 +241,14 @@
             // 
             // clnDataNasc
             // 
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            clnDataNasc.DefaultCellStyle = dataGridViewCellStyle1;
             clnDataNasc.Frozen = true;
             clnDataNasc.HeaderText = "Data de Nascimento";
             clnDataNasc.Name = "clnDataNasc";
             clnDataNasc.ReadOnly = true;
+            clnDataNasc.Width = 90;
             // 
             // clnAtivo
             // 
@@ -236,11 +258,50 @@
             clnAtivo.ReadOnly = true;
             clnAtivo.Width = 45;
             // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(474, 205);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(112, 23);
+            btnEditar.TabIndex = 15;
+            btnEditar.Text = "&Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // txtBusca
+            // 
+            txtBusca.Location = new Point(78, 275);
+            txtBusca.Name = "txtBusca";
+            txtBusca.Size = new Size(666, 23);
+            txtBusca.TabIndex = 16;
+            txtBusca.TextChanged += textBox1_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(78, 257);
+            label7.Name = "label7";
+            label7.Size = new Size(82, 15);
+            label7.TabIndex = 17;
+            label7.Text = "Buscar Cliente";
+            // 
+            // btnDeletar
+            // 
+            btnDeletar.Location = new Point(612, 205);
+            btnDeletar.Name = "btnDeletar";
+            btnDeletar.Size = new Size(112, 23);
+            btnDeletar.TabIndex = 18;
+            btnDeletar.Text = "&Deletar";
+            btnDeletar.UseVisualStyleBackColor = true;
+            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(819, 645);
+            Controls.Add(btnDeletar);
+            Controls.Add(label7);
+            Controls.Add(txtBusca);
+            Controls.Add(btnEditar);
             Controls.Add(dgvClientes);
             Controls.Add(btnInserir);
             Controls.Add(label6);
@@ -264,10 +325,6 @@
             PerformLayout();
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
 
@@ -286,6 +343,10 @@
         private Label label6;
         private Button btnInserir;
         private DataGridView dgvClientes;
+        private Button btnEditar;
+        private TextBox txtBusca;
+        private Label label7;
+        private Button btnDeletar;
         private DataGridViewTextBoxColumn clnId;
         private DataGridViewTextBoxColumn clnNome;
         private DataGridViewTextBoxColumn clnCpf;

@@ -67,7 +67,7 @@ namespace SysPecNSDesk
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(503, 150);
             dgvUsuarios.TabIndex = 0;
-            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
+         
             // 
             // clnId
             // 
@@ -284,11 +284,9 @@ namespace SysPecNSDesk
             PerformLayout();
         }
 
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+       
 
+       
         #endregion
 
         private DataGridView dgvUsuarios;
