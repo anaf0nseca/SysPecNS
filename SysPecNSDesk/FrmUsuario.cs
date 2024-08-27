@@ -49,7 +49,37 @@ namespace SysPecNSDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new();
+            //Cria um novo objeto usuário
+            Usuario usuario = new(
+                txtNome.Text,
+                txtEmail.Text,
+                txtSenha.Text,
+                Nivel.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue))
+                );
+            //Insere as informações no banco
+            usuario.Inserir(); 
+            if(usuario.Id > 0)
+            {
+                //Exibe id gerado para o novo usuário, enquanto a caixa de diálogo não for fechada.
+                txtId.Text = usuario.Id.ToString();
+                MessageBox.Show($"O usuário {usuario.Nome}, " + $"foi inserido com sucesso, com o ID {usuario.Id}.");
+                //Limpa as informações do formulário
+                txtId.Clear();
+                txtNome.Clear();
+                txtEmail.Clear();
+                txtConfSenha.Clear();
+                txtSenha.Clear();
+                //Foca o cursor no campo Nome para a nova inserção
+                txtNome.Focus();
+                //Recarrega a tabela do formulário para exibir o novo usuário na lista
+                FrmUsuario_Load(sender, e);
+            
+            }
+            else 
+            {
+                MessageBox.Show("Falha ao gravar o usuário.");
+            }
+            
 
 
         }
