@@ -29,22 +29,9 @@ namespace SysPecNSDesk
             //Retorna para o banco o valor contido na coluna ID.
             cmbNivel.ValueMember = "Id";
 
-            //Preenchendo o datagrid com os usuarios
-            var lista = Usuario.ObterLista();
-            //Limpar as linhas da tabela
-            dgvUsuarios.Rows.Clear();
-            int cont = 0;
-            foreach (var usuario in lista)
-            {
-                dgvUsuarios.Rows.Add();
-                dgvUsuarios.Rows[cont].Cells[0].Value = usuario.Id;
-                dgvUsuarios.Rows[cont].Cells[1].Value = usuario.Nome;
-                dgvUsuarios.Rows[cont].Cells[2].Value = usuario.Email;
-                dgvUsuarios.Rows[cont].Cells[3].Value = usuario.Nivel.Nome;
-                dgvUsuarios.Rows[cont].Cells[4].Value = usuario.Ativo;
+            CarregaGrid();
 
-                cont++;
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,8 +44,8 @@ namespace SysPecNSDesk
                 Nivel.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue))
                 );
             //Insere as informações no banco
-            usuario.Inserir(); 
-            if(usuario.Id > 0)
+            usuario.Inserir();
+            if (usuario.Id > 0)
             {
                 //Exibe id gerado para o novo usuário, enquanto a caixa de diálogo não for fechada.
                 txtId.Text = usuario.Id.ToString();
@@ -73,13 +60,13 @@ namespace SysPecNSDesk
                 txtNome.Focus();
                 //Recarrega a tabela do formulário para exibir o novo usuário na lista
                 FrmUsuario_Load(sender, e);
-            
+
             }
-            else 
+            else
             {
                 MessageBox.Show("Falha ao gravar o usuário.");
             }
-            
+
 
 
         }
@@ -87,6 +74,42 @@ namespace SysPecNSDesk
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            if(txtBusca.Text.Length > 0)
+            {
+                CarregaGrid(txtBusca.Text);
+            }
+            else
+            {
+                CarregaGrid();
+            }
+        }
+
+        //Método privado que só funciona nesse formulário
+        private void CarregaGrid(string nome = "")
+        {
+
+            //Preenchendo o datagrid com os usuarios
+            var lista = Usuario.ObterLista(nome);
+            
+            //Limpar as linhas da tabela
+            dgvUsuarios.Rows.Clear();
+            int cont = 0;
+            foreach (var usuario in lista)
+            {
+
+                dgvUsuarios.Rows.Add();
+                dgvUsuarios.Rows[cont].Cells[0].Value = usuario.Id;
+                dgvUsuarios.Rows[cont].Cells[1].Value = usuario.Nome;
+                dgvUsuarios.Rows[cont].Cells[2].Value = usuario.Email;
+                dgvUsuarios.Rows[cont].Cells[3].Value = usuario.Nivel.Nome;
+                dgvUsuarios.Rows[cont].Cells[4].Value = usuario.Ativo;
+
+                cont++;
+            }
         }
     }
 }
