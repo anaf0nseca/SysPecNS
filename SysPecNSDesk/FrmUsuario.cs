@@ -31,7 +31,7 @@ namespace SysPecNSDesk
 
             CarregaGrid();
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace SysPecNSDesk
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            if(txtBusca.Text.Length > 0)
+            if (txtBusca.Text.Length > 0)
             {
                 CarregaGrid(txtBusca.Text);
             }
@@ -94,13 +94,13 @@ namespace SysPecNSDesk
 
             //Preenchendo o datagrid com os usuarios
             var lista = Usuario.ObterLista(nome);
-            
+
             //Limpar as linhas da tabela
             dgvUsuarios.Rows.Clear();
             int cont = 0;
             foreach (var usuario in lista)
             {
-
+                //Carrega informações de cada campo nas linhas da tabela
                 dgvUsuarios.Rows.Add();
                 dgvUsuarios.Rows[cont].Cells[0].Value = usuario.Id;
                 dgvUsuarios.Rows[cont].Cells[1].Value = usuario.Nome;
@@ -111,5 +111,7 @@ namespace SysPecNSDesk
                 cont++;
             }
         }
+
+        
     }
 }

@@ -13,17 +13,16 @@ namespace SysPecNSLib
         //nome, cpf, telefone, email, data_nasc, data_cad, ativo
         public int Id { get; set; }
         public string? Nome { get; set; }
-        public int? Cpf { get; set; }
-        public int? Telefone { get; set; }
+        public string? Cpf { get; set; }
+        public string? Telefone { get; set; }
         public string? Email { get; set; }
         public DateTime? Data_Nasc { get; set; }
 
         //public DateOnly(int year, int month, int day) Data_Nasc {get; set;}
 
-        public DateTime Data_Cad { get; set; }
+        public DateTime? Data_Cad { get; set; } = DateTime.Now;
         public bool Ativo { get; set; }
 
-        public DateTime? AtivoDate { get; set;}
 
 
 
@@ -32,7 +31,7 @@ namespace SysPecNSLib
             //Construtor vazio
         }
 
-        public Cliente(int id, string nome, int cpf, int telefone, string email, DateTime data_Nasc, DateTime data_Cad, bool ativo )
+        public Cliente(int id, string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc, DateTime data_Cad, bool ativo )
         {
             //Construtor com todos os campos
             Id = id;
@@ -46,7 +45,7 @@ namespace SysPecNSLib
 
         }
 
-        public Cliente(string nome, int cpf, int telefone, string email, DateTime data_Nasc, DateTime data_Cad, bool ativo)
+        public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc, DateTime? data_Cad, bool ativo)
         {
             //Construtor sem o ID, para inserção
             Nome = nome;
@@ -90,14 +89,14 @@ namespace SysPecNSLib
             if (dr.Read())
             {
                 cliente = new(
-                   dr.GetInt32(0),
-                   dr.GetString(1),
-                   dr.GetInt32(2),
-                   dr.GetInt32(3),
-                   dr.GetString(4),
-                   dr.GetDateTime(5),
+                   dr.GetInt32(0),//id
+                   dr.GetString(1),//nome
+                   dr.GetString(2),//cpf
+                   dr.GetString(3),//telefone
+                   dr.GetString(4),//email
+                   dr.GetDateTime(5),//data_Nasc
                    dr.GetDateTime(6),//data_Cad
-                   dr.GetBoolean(7)
+                   dr.GetBoolean(7)//ativo
                    );
 
             }
@@ -122,16 +121,16 @@ namespace SysPecNSLib
             while (dr.Read())
             {
                 lista.Add(new(
-                   dr.GetInt32(0),
-                   dr.GetString(1),
-                   dr.GetInt32(2),
-                   dr.GetInt32(3),
-                   dr.GetString(4),
-                   dr.GetDateTime(5),
+                   dr.GetInt32(0),//id
+                   dr.GetString(1),//nome
+                   dr.GetString(2),//cpf
+                   dr.GetString(3),//telefone
+                   dr.GetString(4),//email
+                   dr.GetDateTime(5),//data_Nasc
                    dr.GetDateTime(6),//data_Cad
-                   dr.GetBoolean(7)
+                   dr.GetBoolean(7)//ativo
                     )
-                    
+
                );
             }
             return lista;
