@@ -46,6 +46,7 @@
             label2 = new Label();
             btnSalvarEndereco = new Button();
             btnAdicionarEndereco = new Button();
+            btnFechar = new Button();
             SuspendLayout();
             // 
             // txtLogradouro
@@ -180,7 +181,7 @@
             // 
             // btnSalvarEndereco
             // 
-            btnSalvarEndereco.Location = new Point(369, 212);
+            btnSalvarEndereco.Location = new Point(237, 212);
             btnSalvarEndereco.Name = "btnSalvarEndereco";
             btnSalvarEndereco.Size = new Size(126, 23);
             btnSalvarEndereco.TabIndex = 18;
@@ -190,18 +191,30 @@
             // 
             // btnAdicionarEndereco
             // 
-            btnAdicionarEndereco.Location = new Point(530, 212);
+            btnAdicionarEndereco.Location = new Point(415, 212);
             btnAdicionarEndereco.Name = "btnAdicionarEndereco";
             btnAdicionarEndereco.Size = new Size(196, 23);
             btnAdicionarEndereco.TabIndex = 19;
             btnAdicionarEndereco.Text = "&Adicionar outro endereço";
             btnAdicionarEndereco.UseVisualStyleBackColor = true;
+            btnAdicionarEndereco.Click += btnAdicionarEndereco_Click;
+            // 
+            // btnFechar
+            // 
+            btnFechar.Location = new Point(661, 212);
+            btnFechar.Name = "btnFechar";
+            btnFechar.Size = new Size(75, 23);
+            btnFechar.TabIndex = 20;
+            btnFechar.Text = "Fechar";
+            btnFechar.UseVisualStyleBackColor = true;
+            btnFechar.Click += btnFechar_Click;
             // 
             // FrmEndereco
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(761, 265);
+            Controls.Add(btnFechar);
             Controls.Add(btnAdicionarEndereco);
             Controls.Add(btnSalvarEndereco);
             Controls.Add(label2);
@@ -247,5 +260,6 @@
         private Label label2;
         private Button btnSalvarEndereco;
         private Button btnAdicionarEndereco;
+        private Button btnFechar;
     }
 }

@@ -58,7 +58,7 @@ namespace SysPecNSDesk
             if (endereco.Id > 0)
             {
                 //Exibe ID do cliente no formulário, enquanto a caixa de diálogo não for fechada.
-                
+
                 MessageBox.Show($"O endereço foi inserido com sucesso, no cadastro do usuário {endereco.Cliente.Nome}");
 
                 btnSalvarEndereco.Enabled = false;
@@ -81,6 +81,43 @@ namespace SysPecNSDesk
             {
                 MessageBox.Show("Falha ao cadastrar o endereço no sistema.");
             }
+        }
+
+        private void btnAdicionarEndereco_Click(object sender, EventArgs e)
+        {
+            btnSalvarEndereco.Enabled = true;
+
+            txtCep.Clear();
+            txtLogradouro.Clear();
+            txtNumero.Clear();
+            txtComplemento.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            txtUf.Clear();
+            txtTipoEndereco.Clear();
+
+            txtCep.Focus();
+
+            Endereco endereco = new(
+               Cliente.ObterPorId(ClienteId),
+               txtCep.Text,
+               txtLogradouro.Text,
+               txtNumero.Text,
+               txtComplemento.Text,
+               txtBairro.Text,
+               txtCidade.Text,
+               txtUf.Text,
+               txtTipoEndereco.Text
+
+
+
+              );
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+           this.Close();
+           //frmCliente.txtId.Text.Clear();
         }
     }
 }
