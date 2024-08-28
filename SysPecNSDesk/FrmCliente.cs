@@ -41,9 +41,11 @@ namespace SysPecNSDesk
                 //Exibe ID do cliente no formulário, enquanto a caixa de diálogo não for fechada.
                 txtId.Text = cliente.Id.ToString();
                 MessageBox.Show($"O cliente {cliente.Nome}, " + $"foi inserido com sucesso com o ID {cliente.Id}!");
+                
+                button1.Enabled = true;
 
                 //Limpa as informações do formulário
-                txtId.Clear();
+                //txtId.Clear();
                 txtNome.Clear();
                 txtCpf.Clear();
                 txtTelefone.Clear();
@@ -97,7 +99,7 @@ namespace SysPecNSDesk
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //Se algo for digitado no campo, o texto é utilizado como parâmetro da classe CarregaGrid
-            if(txtBusca.Text.Length > 0)
+            if (txtBusca.Text.Length > 0)
             {
                 CarregaGrid(txtBusca.Text);
             }
@@ -106,6 +108,14 @@ namespace SysPecNSDesk
                 //Se nada for digitado, a classe é executada normalmente e exibe todos os clientes
                 CarregaGrid();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmEndereco frmEndereco = new();
+            frmEndereco.ClienteId = int.Parse(txtId.Text);
+            frmEndereco.ShowDialog();
+
         }
     }
 }

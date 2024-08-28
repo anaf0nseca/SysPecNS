@@ -48,7 +48,7 @@ namespace SysPecNSLib
             Nivel = nivel;
             Ativo = ativo;
         }
-
+        
         public void Inserir() 
         {
             var cmd = Banco.Abrir();
@@ -181,7 +181,16 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
+        public void Excluir()
+        {
+            // em geral nada se exclui de uma tabela...
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"delete from usuarios where id = {Id}";
+            cmd.ExecuteNonQuery();
 
+
+        }
 
 
     }

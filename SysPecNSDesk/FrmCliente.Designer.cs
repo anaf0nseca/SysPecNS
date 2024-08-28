@@ -56,6 +56,7 @@
             txtBusca = new TextBox();
             label7 = new Label();
             btnDeletar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             // 
             txtId.Location = new Point(78, 42);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(51, 23);
             txtId.TabIndex = 0;
             // 
@@ -293,11 +295,23 @@
             btnDeletar.Text = "&Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Enabled = false;
+            button1.Location = new Point(361, 42);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 19;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(819, 645);
+            Controls.Add(button1);
             Controls.Add(btnDeletar);
             Controls.Add(label7);
             Controls.Add(txtBusca);
@@ -354,5 +368,6 @@
         private DataGridViewTextBoxColumn clnEmail;
         private DataGridViewTextBoxColumn clnDataNasc;
         private DataGridViewCheckBoxColumn clnAtivo;
+        private Button button1;
     }
 }
