@@ -17,11 +17,18 @@ namespace SysPecNSLib
         public string? Telefone { get; set; }
         public string? Email { get; set; }
         public DateTime? Data_Nasc { get; set; }
-
-        //public DateOnly(int year, int month, int day) Data_Nasc {get; set;}
-
         public DateTime? Data_Cad { get; set; } = DateTime.Now;
         public bool Ativo { get; set; }
+
+
+        //com id sem endereco
+
+        //sem id sem endereco sem ativo
+
+        //executescalar
+
+
+
 
 
 
@@ -68,6 +75,9 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spdatanasc", Data_Nasc);
+
+            //Executa uma consulta e retorna a primeira coluna da primeira linha, retorna um único valor do banco de dados.
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
             
             var dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -97,6 +107,7 @@ namespace SysPecNSLib
                    dr.GetDateTime(5),//data_Nasc
                    dr.GetDateTime(6),//data_Cad
                    dr.GetBoolean(7)//ativo
+                   //Endereco.ObterListaPorCliente(dr.GetInt32(0))
                    );
 
             }
@@ -133,6 +144,7 @@ namespace SysPecNSLib
 
                );
             }
+            //clientes
             return lista;
 
         }

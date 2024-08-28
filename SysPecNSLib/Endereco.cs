@@ -106,9 +106,12 @@ namespace SysPecNSLib
 
         }
 
+        // public static List<endereco> obterlistaporcliente(int clienteId)
+
+        //where cliente_id = {clienteId}
         public static List<Endereco> ObterLista(string? endereco="")
         {
-            List<Endereco> lista = new();
+            List<Endereco> enderecos = new();
             var comandosSQL = Banco.Abrir();
             comandosSQL.CommandType = CommandType.Text;
             if(endereco == "")
@@ -124,7 +127,7 @@ namespace SysPecNSLib
             var dr = comandosSQL.ExecuteReader();
             while (dr.Read())
             {
-                lista.Add(
+                enderecos.Add(
                     new(
                         dr.GetInt32(0),
                         Cliente.ObterPorId(dr.GetInt32(1)),
@@ -139,10 +142,11 @@ namespace SysPecNSLib
                         )
                     );
             }
-            return lista;
+            return enderecos;
         }
-
-        public void Atualizar()
+        
+        //bool
+        public void  Atualizar(int id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
@@ -158,16 +162,19 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spuf", Uf);
             cmd.Parameters.AddWithValue("sptipo_endereco", Tipo_Endereco);
 
+            //Quando uma procedure é executada, 0 nenhuma alteração, 1 alterado e -1 falha
+            //return cmd.ExecuteNonQuery()>-1?true:false
+
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }
 
-        public void Excluir()
+        public void Excluir(int id)
         {
             // em geral nada se exclui de uma tabela...
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"delete from enderecos where id = {Id}";
+            cmd.CommandText = $"delete from enderecos where id = {id}";
             cmd.ExecuteNonQuery();
 
 
