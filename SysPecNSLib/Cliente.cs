@@ -52,7 +52,7 @@ namespace SysPecNSLib
 
         }
 
-        public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc, DateTime? data_Cad, bool ativo)
+        public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc, DateTime? data_Cad)
         {
             //Construtor sem o ID, para inserção
             Nome = nome;
@@ -61,7 +61,6 @@ namespace SysPecNSLib
             Email = email;
             Data_Nasc = data_Nasc;
             Data_Cad = data_Cad;
-            Ativo = ativo;
 
         }
 
@@ -77,7 +76,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spdatanasc", Data_Nasc);
 
             //Executa uma consulta e retorna a primeira coluna da primeira linha, retorna um único valor do banco de dados.
-            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            //Id = Convert.ToInt32(cmd.ExecuteScalar());
             
             var dr = cmd.ExecuteReader();
             while (dr.Read())

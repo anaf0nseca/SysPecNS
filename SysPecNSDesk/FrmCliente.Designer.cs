@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txtId = new TextBox();
             txtNome = new TextBox();
             txtCpf = new TextBox();
             txtTelefone = new TextBox();
             txtEmail = new TextBox();
             dtpDataNasc = new DateTimePicker();
-            chkAtivo = new CheckBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -56,7 +55,7 @@
             txtBusca = new TextBox();
             label7 = new Label();
             btnDeletar = new Button();
-            button1 = new Button();
+            btnCadastrarEnd = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -104,16 +103,6 @@
             dtpDataNasc.Name = "dtpDataNasc";
             dtpDataNasc.Size = new Size(135, 23);
             dtpDataNasc.TabIndex = 5;
-            // 
-            // chkAtivo
-            // 
-            chkAtivo.AutoSize = true;
-            chkAtivo.Location = new Point(244, 209);
-            chkAtivo.Name = "chkAtivo";
-            chkAtivo.Size = new Size(54, 19);
-            chkAtivo.TabIndex = 6;
-            chkAtivo.Text = "Ativo";
-            chkAtivo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -171,7 +160,7 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(335, 205);
+            btnInserir.Location = new Point(258, 207);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(115, 23);
             btnInserir.TabIndex = 13;
@@ -186,15 +175,15 @@
             dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnAtivo });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvClientes.Location = new Point(78, 304);
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvClientes.Location = new Point(78, 286);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowHeadersVisible = false;
@@ -243,9 +232,9 @@
             // 
             // clnDataNasc
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            clnDataNasc.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            clnDataNasc.DefaultCellStyle = dataGridViewCellStyle3;
             clnDataNasc.Frozen = true;
             clnDataNasc.HeaderText = "Data de Nascimento";
             clnDataNasc.Name = "clnDataNasc";
@@ -262,7 +251,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(474, 205);
+            btnEditar.Location = new Point(632, 207);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(112, 23);
             btnEditar.TabIndex = 15;
@@ -271,7 +260,7 @@
             // 
             // txtBusca
             // 
-            txtBusca.Location = new Point(78, 275);
+            txtBusca.Location = new Point(78, 257);
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(666, 23);
             txtBusca.TabIndex = 16;
@@ -280,7 +269,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(78, 257);
+            label7.Location = new Point(78, 239);
             label7.Name = "label7";
             label7.Size = new Size(82, 15);
             label7.TabIndex = 17;
@@ -288,30 +277,30 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(612, 205);
+            btnDeletar.Location = new Point(632, 589);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(112, 23);
             btnDeletar.TabIndex = 18;
             btnDeletar.Text = "&Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCadastrarEnd
             // 
-            button1.Enabled = false;
-            button1.Location = new Point(361, 42);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 19;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCadastrarEnd.Enabled = false;
+            btnCadastrarEnd.Location = new Point(429, 207);
+            btnCadastrarEnd.Name = "btnCadastrarEnd";
+            btnCadastrarEnd.Size = new Size(145, 23);
+            btnCadastrarEnd.TabIndex = 19;
+            btnCadastrarEnd.Text = "Cadastrar endereço";
+            btnCadastrarEnd.UseVisualStyleBackColor = true;
+            btnCadastrarEnd.Click += button1_Click;
             // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(819, 645);
-            Controls.Add(button1);
+            Controls.Add(btnCadastrarEnd);
             Controls.Add(btnDeletar);
             Controls.Add(label7);
             Controls.Add(txtBusca);
@@ -324,7 +313,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(chkAtivo);
             Controls.Add(dtpDataNasc);
             Controls.Add(txtEmail);
             Controls.Add(txtTelefone);
@@ -348,7 +336,6 @@
         private TextBox txtTelefone;
         private TextBox txtEmail;
         private DateTimePicker dtpDataNasc;
-        private CheckBox chkAtivo;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -368,6 +355,6 @@
         private DataGridViewTextBoxColumn clnEmail;
         private DataGridViewTextBoxColumn clnDataNasc;
         private DataGridViewCheckBoxColumn clnAtivo;
-        private Button button1;
+        private Button btnCadastrarEnd;
     }
 }

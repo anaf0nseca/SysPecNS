@@ -31,8 +31,7 @@ namespace SysPecNSDesk
                 txtTelefone.Text,
                 txtEmail.Text,
                 dtpDataNasc.Value,
-                DateTime.Now,
-                chkAtivo.Checked
+                DateTime.Now
                 );
 
             cliente.Inserir();
@@ -42,7 +41,8 @@ namespace SysPecNSDesk
                 txtId.Text = cliente.Id.ToString();
                 MessageBox.Show($"O cliente {cliente.Nome}, " + $"foi inserido com sucesso com o ID {cliente.Id}!");
                 
-                button1.Enabled = true;
+                btnCadastrarEnd.Enabled = true;
+
 
                 //Limpa as informações do formulário
                 //txtId.Clear();
