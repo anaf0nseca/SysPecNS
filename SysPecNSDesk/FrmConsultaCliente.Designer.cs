@@ -30,6 +30,9 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            groupBox1 = new GroupBox();
+            tabConsultaCliente = new TabControl();
+            tabPageBuscar = new TabPage();
             label7 = new Label();
             txtBusca = new TextBox();
             dgvClientes = new DataGridView();
@@ -40,30 +43,68 @@
             clnEmail = new DataGridViewTextBoxColumn();
             clnDataNasc = new DataGridViewTextBoxColumn();
             clnAtivo = new DataGridViewCheckBoxColumn();
+            tabPageEditar = new TabPage();
+            groupBox1.SuspendLayout();
+            tabConsultaCliente.SuspendLayout();
+            tabPageBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(tabConsultaCliente);
+            groupBox1.Location = new Point(1, -19);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(776, 428);
+            groupBox1.TabIndex = 40;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // tabConsultaCliente
+            // 
+            tabConsultaCliente.Controls.Add(tabPageBuscar);
+            tabConsultaCliente.Controls.Add(tabPageEditar);
+            tabConsultaCliente.Location = new Point(6, 22);
+            tabConsultaCliente.Name = "tabConsultaCliente";
+            tabConsultaCliente.SelectedIndex = 0;
+            tabConsultaCliente.Size = new Size(764, 398);
+            tabConsultaCliente.TabIndex = 0;
+            // 
+            // tabPageBuscar
+            // 
+            tabPageBuscar.Controls.Add(label7);
+            tabPageBuscar.Controls.Add(txtBusca);
+            tabPageBuscar.Controls.Add(dgvClientes);
+            tabPageBuscar.Location = new Point(4, 24);
+            tabPageBuscar.Name = "tabPageBuscar";
+            tabPageBuscar.Padding = new Padding(3);
+            tabPageBuscar.Size = new Size(756, 370);
+            tabPageBuscar.TabIndex = 0;
+            tabPageBuscar.Text = "Buscar cliente";
+            tabPageBuscar.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(61, 46);
+            label7.Location = new Point(45, 12);
             label7.Name = "label7";
             label7.Size = new Size(82, 15);
-            label7.TabIndex = 39;
+            label7.TabIndex = 42;
             label7.Text = "Buscar Cliente";
             // 
             // txtBusca
             // 
-            txtBusca.Location = new Point(61, 64);
+            txtBusca.Location = new Point(45, 30);
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(666, 23);
-            txtBusca.TabIndex = 38;
-            txtBusca.TextChanged += txtBusca_TextChanged_1;
+            txtBusca.TabIndex = 41;
             // 
             // dgvClientes
             // 
             dgvClientes.AllowUserToAddRows = false;
             dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.AllowUserToResizeColumns = false;
+            dgvClientes.AllowUserToResizeRows = false;
             dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnAtivo });
@@ -75,13 +116,14 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvClientes.Location = new Point(61, 93);
+            dgvClientes.Location = new Point(45, 59);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(666, 286);
-            dgvClientes.TabIndex = 37;
+            dgvClientes.TabIndex = 40;
+            dgvClientes.CellContentDoubleClick += dgvClientes_CellContentDoubleClick;
             // 
             // clnId
             // 
@@ -141,24 +183,39 @@
             clnAtivo.ReadOnly = true;
             clnAtivo.Width = 45;
             // 
+            // tabPageEditar
+            // 
+            tabPageEditar.Location = new Point(4, 24);
+            tabPageEditar.Name = "tabPageEditar";
+            tabPageEditar.Padding = new Padding(3);
+            tabPageEditar.Size = new Size(756, 370);
+            tabPageEditar.TabIndex = 1;
+            tabPageEditar.Text = "Editar cadastro";
+            tabPageEditar.UseVisualStyleBackColor = true;
+            // 
             // FrmConsultaCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label7);
-            Controls.Add(txtBusca);
-            Controls.Add(dgvClientes);
+            ClientSize = new Size(776, 409);
+            Controls.Add(groupBox1);
             Name = "FrmConsultaCliente";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmConsultaCliente";
             Load += FrmConsultaCliente_Load;
+            groupBox1.ResumeLayout(false);
+            tabConsultaCliente.ResumeLayout(false);
+            tabPageBuscar.ResumeLayout(false);
+            tabPageBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
+        private GroupBox groupBox1;
+        private TabControl tabConsultaCliente;
+        private TabPage tabPageBuscar;
+        private TabPage tabPageEditar;
         private Label label7;
         private TextBox txtBusca;
         private DataGridView dgvClientes;

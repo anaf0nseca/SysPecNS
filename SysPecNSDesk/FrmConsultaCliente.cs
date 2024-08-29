@@ -69,5 +69,16 @@ namespace SysPecNSDesk
         }
 
        
+
+        private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = 0;
+            int posicaoLinha = dgvClientes.CurrentRow.Index;
+            id = Convert.ToInt32(dgvClientes.Rows[posicaoLinha].Cells[0].Value);
+
+            //MessageBox.Show(id.ToString());
+
+            this.tabConsultaCliente.SelectedTab = tabPageEditar;
+        }
     }
 }
