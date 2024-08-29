@@ -61,13 +61,15 @@ namespace SysPecNSDesk
             dgvUsuarios.AllowUserToAddRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnEmail, clnNivel, clnAtivo });
-            dgvUsuarios.Location = new Point(107, 276);
+            dgvUsuarios.Location = new Point(107, 271);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(503, 150);
             dgvUsuarios.TabIndex = 1;
+            dgvUsuarios.UseWaitCursor = true;
+            dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
             // clnId
             // 
@@ -304,6 +306,7 @@ namespace SysPecNSDesk
             Name = "FrmUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmUsuario";
+            UseWaitCursor = true;
             Load += FrmUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);

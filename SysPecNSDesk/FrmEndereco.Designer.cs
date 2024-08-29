@@ -211,8 +211,10 @@
             // 
             // FrmEndereco
             // 
+            AcceptButton = btnSalvarEndereco;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnFechar;
             ClientSize = new Size(761, 265);
             Controls.Add(btnFechar);
             Controls.Add(btnAdicionarEndereco);

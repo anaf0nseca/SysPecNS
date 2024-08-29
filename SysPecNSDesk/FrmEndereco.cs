@@ -28,7 +28,7 @@ namespace SysPecNSDesk
 
         private void FrmEndereco_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(this.ClienteId.ToString());
+            //MessageBox.Show(this.ClienteId.ToString());
         }
 
         private void label3_Click(object sender, EventArgs e)

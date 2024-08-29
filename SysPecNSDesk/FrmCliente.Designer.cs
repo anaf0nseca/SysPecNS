@@ -56,7 +56,18 @@
             label7 = new Label();
             btnDeletar = new Button();
             btnCadastrarEnd = new Button();
+            groupBox1 = new GroupBox();
+            tabCliente = new TabControl();
+            tabPageDadosCliente = new TabPage();
+            tabPageEnderecos = new TabPage();
+            button1 = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            groupBox1.SuspendLayout();
+            tabCliente.SuspendLayout();
+            tabPageDadosCliente.SuspendLayout();
+            tabPageEnderecos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // txtId
@@ -295,11 +306,71 @@
             btnCadastrarEnd.UseVisualStyleBackColor = true;
             btnCadastrarEnd.Click += button1_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(tabCliente);
+            groupBox1.Location = new Point(333, 371);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(241, 154);
+            groupBox1.TabIndex = 20;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // tabCliente
+            // 
+            tabCliente.Controls.Add(tabPageDadosCliente);
+            tabCliente.Controls.Add(tabPageEnderecos);
+            tabCliente.Location = new Point(22, 31);
+            tabCliente.Name = "tabCliente";
+            tabCliente.SelectedIndex = 0;
+            tabCliente.Size = new Size(200, 100);
+            tabCliente.TabIndex = 0;
+            // 
+            // tabPageDadosCliente
+            // 
+            tabPageDadosCliente.Controls.Add(button1);
+            tabPageDadosCliente.Location = new Point(4, 24);
+            tabPageDadosCliente.Name = "tabPageDadosCliente";
+            tabPageDadosCliente.Padding = new Padding(3);
+            tabPageDadosCliente.Size = new Size(192, 72);
+            tabPageDadosCliente.TabIndex = 0;
+            tabPageDadosCliente.Text = "Dados do Cliente";
+            tabPageDadosCliente.UseVisualStyleBackColor = true;
+            // 
+            // tabPageEnderecos
+            // 
+            tabPageEnderecos.Controls.Add(dataGridView1);
+            tabPageEnderecos.Location = new Point(4, 24);
+            tabPageEnderecos.Name = "tabPageEnderecos";
+            tabPageEnderecos.Padding = new Padding(3);
+            tabPageEnderecos.Size = new Size(192, 72);
+            tabPageEnderecos.TabIndex = 1;
+            tabPageEnderecos.Text = "Endereços";
+            tabPageEnderecos.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(57, 18);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(61, 18);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(66, 38);
+            dataGridView1.TabIndex = 0;
+            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(819, 645);
+            ClientSize = new Size(993, 678);
+            Controls.Add(groupBox1);
             Controls.Add(btnCadastrarEnd);
             Controls.Add(btnDeletar);
             Controls.Add(label7);
@@ -323,6 +394,11 @@
             Text = "Cadastro de Cliente";
             Load += FrmCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            groupBox1.ResumeLayout(false);
+            tabCliente.ResumeLayout(false);
+            tabPageDadosCliente.ResumeLayout(false);
+            tabPageEnderecos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -356,5 +432,11 @@
         private DataGridViewTextBoxColumn clnDataNasc;
         private DataGridViewCheckBoxColumn clnAtivo;
         private Button btnCadastrarEnd;
+        private GroupBox groupBox1;
+        private TabControl tabCliente;
+        private TabPage tabPageDadosCliente;
+        private TabPage tabPageEnderecos;
+        private Button button1;
+        private DataGridView dataGridView1;
     }
 }

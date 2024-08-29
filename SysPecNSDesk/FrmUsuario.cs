@@ -133,7 +133,7 @@ namespace SysPecNSDesk
         //Método 
         private bool VerificaControles()
         {
-            if(txtNome.Text != string.Empty 
+            if (txtNome.Text != string.Empty
                 || txtEmail.Text != string.Empty
                 || txtSenha.Text != string.Empty
                 || txtConfSenha.Text != string.Empty)
@@ -145,7 +145,16 @@ namespace SysPecNSDesk
             {
                 return false;
             }
-           
+
+        }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = 0;
+            int posicaoLinha = dgvUsuarios.CurrentRow.Index;
+            id = Convert.ToInt32(dgvUsuarios.Rows[posicaoLinha].Cells[0].Value);
+
+            MessageBox.Show(id.ToString());
         }
     }
 }
