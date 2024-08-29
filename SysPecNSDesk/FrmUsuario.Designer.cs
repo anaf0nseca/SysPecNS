@@ -52,6 +52,7 @@ namespace SysPecNSDesk
             btnEditar = new Button();
             btnDeletar = new Button();
             txtBusca = new TextBox();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -66,8 +67,7 @@ namespace SysPecNSDesk
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(503, 150);
-            dgvUsuarios.TabIndex = 0;
-         
+            dgvUsuarios.TabIndex = 1;
             // 
             // clnId
             // 
@@ -108,11 +108,17 @@ namespace SysPecNSDesk
             // 
             // btnInserir
             // 
+            btnInserir.Cursor = Cursors.Hand;
+            btnInserir.FlatAppearance.BorderSize = 0;
+            btnInserir.FlatStyle = FlatStyle.Flat;
+            btnInserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInserir.Image = Properties.Resources.Add;
             btnInserir.Location = new Point(107, 184);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(131, 23);
-            btnInserir.TabIndex = 1;
+            btnInserir.Size = new Size(83, 41);
+            btnInserir.TabIndex = 14;
             btnInserir.Text = "&Inserir";
+            btnInserir.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += button1_Click;
             // 
@@ -223,26 +229,30 @@ namespace SysPecNSDesk
             chkAtivo.Location = new Point(414, 145);
             chkAtivo.Name = "chkAtivo";
             chkAtivo.Size = new Size(54, 19);
-            chkAtivo.TabIndex = 14;
+            chkAtivo.TabIndex = 13;
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(297, 184);
+            btnEditar.Image = Properties.Resources.Edit_Alt;
+            btnEditar.Location = new Point(242, 184);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(131, 23);
+            btnEditar.Size = new Size(88, 41);
             btnEditar.TabIndex = 15;
             btnEditar.Text = "&Editar";
+            btnEditar.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(479, 184);
+            btnDeletar.Image = Properties.Resources.Delete;
+            btnDeletar.Location = new Point(379, 184);
             btnDeletar.Name = "btnDeletar";
-            btnDeletar.Size = new Size(131, 23);
+            btnDeletar.Size = new Size(91, 41);
             btnDeletar.TabIndex = 16;
             btnDeletar.Text = "De&letar";
+            btnDeletar.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnDeletar.UseVisualStyleBackColor = true;
             // 
             // txtBusca
@@ -253,12 +263,27 @@ namespace SysPecNSDesk
             txtBusca.TabIndex = 17;
             txtBusca.TextChanged += txtBusca_TextChanged;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Image = Properties.Resources.Cancel;
+            btnCancelar.Location = new Point(515, 184);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(95, 41);
+            btnCancelar.TabIndex = 16;
+            btnCancelar.Text = "&Cancelar";
+            btnCancelar.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // FrmUsuario
             // 
+            AcceptButton = btnInserir;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(717, 450);
             Controls.Add(txtBusca);
+            Controls.Add(btnCancelar);
             Controls.Add(btnDeletar);
             Controls.Add(btnEditar);
             Controls.Add(chkAtivo);
@@ -277,6 +302,7 @@ namespace SysPecNSDesk
             Controls.Add(btnInserir);
             Controls.Add(dgvUsuarios);
             Name = "FrmUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmUsuario";
             Load += FrmUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
@@ -284,9 +310,9 @@ namespace SysPecNSDesk
             PerformLayout();
         }
 
-       
 
-       
+
+
         #endregion
 
         private DataGridView dgvUsuarios;
@@ -312,5 +338,6 @@ namespace SysPecNSDesk
         private Button btnEditar;
         private Button btnDeletar;
         private TextBox txtBusca;
+        private Button btnCancelar;
     }
 }

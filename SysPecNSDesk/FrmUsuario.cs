@@ -112,6 +112,40 @@ namespace SysPecNSDesk
             }
         }
 
-        
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //É possível utilizar um método como parêmetro, que retorne um valor booleano
+            if (VerificaControles())
+            {
+                var msg = MessageBox.Show(
+                    "Deseja continuar o cadastro?", //Texto da mensagem 
+                    "Cadastro de Usuário", //Título da caixa de mensagem
+                    MessageBoxButtons.YesNo, //Botões exibidos na caixa
+                    MessageBoxIcon.Exclamation, //Ícone exibido
+                    MessageBoxDefaultButton.Button1); //Botão padrão
+
+                if (msg == DialogResult.No) this.Close();
+            }
+            else { this.Close(); }
+
+        }
+
+        //Método 
+        private bool VerificaControles()
+        {
+            if(txtNome.Text != string.Empty 
+                || txtEmail.Text != string.Empty
+                || txtSenha.Text != string.Empty
+                || txtConfSenha.Text != string.Empty)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+           
+        }
     }
 }
