@@ -60,12 +60,18 @@ namespace SysPecNSDesk
         {
             //Texto da mensagem, titulo da caixa, botões exibidos, icone da caixa, botão padrão
             var msg = MessageBox.Show("Deseja sair?", "Confirmação de saída", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            if(msg == DialogResult.Yes)
+            if (msg == DialogResult.Yes)
             {
                 //o par de chaves não é necessário se existe apenas uma linha de código dentro do IF, melhora desempenho
                 Application.Exit();
             }
         }
 
+        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCliente frmConsultaCliente = new FrmConsultaCliente();
+            frmConsultaCliente.MdiParent = this;
+            frmConsultaCliente.Show();
+        }
     }
 }

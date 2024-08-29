@@ -61,14 +61,13 @@ namespace SysPecNSDesk
             dgvUsuarios.AllowUserToAddRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnEmail, clnNivel, clnAtivo });
-            dgvUsuarios.Location = new Point(107, 271);
+            dgvUsuarios.Location = new Point(35, 273);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(503, 150);
             dgvUsuarios.TabIndex = 1;
-            dgvUsuarios.UseWaitCursor = true;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
             // clnId
@@ -115,7 +114,7 @@ namespace SysPecNSDesk
             btnInserir.FlatStyle = FlatStyle.Flat;
             btnInserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInserir.Image = Properties.Resources.Add;
-            btnInserir.Location = new Point(107, 184);
+            btnInserir.Location = new Point(35, 186);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(83, 41);
             btnInserir.TabIndex = 14;
@@ -127,7 +126,7 @@ namespace SysPecNSDesk
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(107, 23);
+            label1.Location = new Point(35, 25);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 2;
@@ -137,7 +136,7 @@ namespace SysPecNSDesk
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(242, 23);
+            label2.Location = new Point(170, 25);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 3;
@@ -146,7 +145,7 @@ namespace SysPecNSDesk
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(107, 75);
+            label3.Location = new Point(35, 77);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 4;
@@ -155,7 +154,7 @@ namespace SysPecNSDesk
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(379, 75);
+            label4.Location = new Point(307, 77);
             label4.Name = "label4";
             label4.Size = new Size(34, 15);
             label4.TabIndex = 5;
@@ -164,7 +163,7 @@ namespace SysPecNSDesk
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(108, 125);
+            label5.Location = new Point(36, 127);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
             label5.TabIndex = 6;
@@ -172,7 +171,8 @@ namespace SysPecNSDesk
             // 
             // txtId
             // 
-            txtId.Location = new Point(107, 41);
+            txtId.Cursor = Cursors.No;
+            txtId.Location = new Point(35, 43);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(100, 23);
@@ -180,29 +180,33 @@ namespace SysPecNSDesk
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(242, 41);
+            txtNome.Cursor = Cursors.IBeam;
+            txtNome.Location = new Point(170, 43);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(323, 23);
             txtNome.TabIndex = 8;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(107, 93);
+            txtEmail.Cursor = Cursors.IBeam;
+            txtEmail.Location = new Point(35, 95);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(214, 23);
             txtEmail.TabIndex = 9;
             // 
             // cmbNivel
             // 
+            cmbNivel.Cursor = Cursors.IBeam;
             cmbNivel.FormattingEnabled = true;
-            cmbNivel.Location = new Point(379, 93);
+            cmbNivel.Location = new Point(307, 95);
             cmbNivel.Name = "cmbNivel";
             cmbNivel.Size = new Size(186, 23);
             cmbNivel.TabIndex = 10;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(108, 143);
+            txtSenha.Cursor = Cursors.IBeam;
+            txtSenha.Location = new Point(36, 145);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(131, 23);
             txtSenha.TabIndex = 11;
@@ -210,7 +214,8 @@ namespace SysPecNSDesk
             // 
             // txtConfSenha
             // 
-            txtConfSenha.Location = new Point(261, 143);
+            txtConfSenha.Cursor = Cursors.IBeam;
+            txtConfSenha.Location = new Point(189, 145);
             txtConfSenha.Name = "txtConfSenha";
             txtConfSenha.Size = new Size(131, 23);
             txtConfSenha.TabIndex = 12;
@@ -219,7 +224,7 @@ namespace SysPecNSDesk
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(261, 125);
+            label6.Location = new Point(189, 127);
             label6.Name = "label6";
             label6.Size = new Size(95, 15);
             label6.TabIndex = 13;
@@ -228,7 +233,8 @@ namespace SysPecNSDesk
             // chkAtivo
             // 
             chkAtivo.AutoSize = true;
-            chkAtivo.Location = new Point(414, 145);
+            chkAtivo.Cursor = Cursors.Hand;
+            chkAtivo.Location = new Point(342, 147);
             chkAtivo.Name = "chkAtivo";
             chkAtivo.Size = new Size(54, 19);
             chkAtivo.TabIndex = 13;
@@ -237,8 +243,12 @@ namespace SysPecNSDesk
             // 
             // btnEditar
             // 
+            btnEditar.Cursor = Cursors.Hand;
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnEditar.Image = Properties.Resources.Edit_Alt;
-            btnEditar.Location = new Point(242, 184);
+            btnEditar.Location = new Point(170, 186);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(88, 41);
             btnEditar.TabIndex = 15;
@@ -248,8 +258,12 @@ namespace SysPecNSDesk
             // 
             // btnDeletar
             // 
+            btnDeletar.Cursor = Cursors.Hand;
+            btnDeletar.FlatAppearance.BorderSize = 0;
+            btnDeletar.FlatStyle = FlatStyle.Flat;
+            btnDeletar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnDeletar.Image = Properties.Resources.Delete;
-            btnDeletar.Location = new Point(379, 184);
+            btnDeletar.Location = new Point(307, 186);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(91, 41);
             btnDeletar.TabIndex = 16;
@@ -259,7 +273,8 @@ namespace SysPecNSDesk
             // 
             // txtBusca
             // 
-            txtBusca.Location = new Point(107, 247);
+            txtBusca.Cursor = Cursors.IBeam;
+            txtBusca.Location = new Point(35, 249);
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(503, 23);
             txtBusca.TabIndex = 17;
@@ -267,8 +282,12 @@ namespace SysPecNSDesk
             // 
             // btnCancelar
             // 
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnCancelar.Image = Properties.Resources.Cancel;
-            btnCancelar.Location = new Point(515, 184);
+            btnCancelar.Location = new Point(443, 186);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(95, 41);
             btnCancelar.TabIndex = 16;
@@ -283,7 +302,7 @@ namespace SysPecNSDesk
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
-            ClientSize = new Size(717, 450);
+            ClientSize = new Size(578, 450);
             Controls.Add(txtBusca);
             Controls.Add(btnCancelar);
             Controls.Add(btnDeletar);
@@ -306,7 +325,6 @@ namespace SysPecNSDesk
             Name = "FrmUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmUsuario";
-            UseWaitCursor = true;
             Load += FrmUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
