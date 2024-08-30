@@ -54,7 +54,7 @@ namespace SysPecNSDesk
 
         }
 
-        private void txtBusca_TextChanged_1(object sender, EventArgs e)
+        private void txtBusca_TextChanged(object sender, EventArgs e)
         {
             //Se algo for digitado no campo, o texto é utilizado como parâmetro da classe CarregaGrid
             if (txtBusca.Text.Length > 0)
@@ -68,7 +68,7 @@ namespace SysPecNSDesk
             }
         }
 
-       
+
 
         private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

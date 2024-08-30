@@ -98,6 +98,7 @@
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(666, 23);
             txtBusca.TabIndex = 41;
+            txtBusca.TextChanged += txtBusca_TextChanged;
             // 
             // dgvClientes
             // 
