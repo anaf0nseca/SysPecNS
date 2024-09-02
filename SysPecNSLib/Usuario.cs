@@ -19,6 +19,8 @@ namespace SysPecNSLib
         public string? Senha { get; set; }
         public Nivel Nivel { get; set; }
         public bool Ativo { get; set; }
+        
+        
         public Usuario()
         {
             Nivel = new();
@@ -188,7 +190,6 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"delete from usuarios where id = {Id}";
             cmd.ExecuteNonQuery();
-
 
         }
 

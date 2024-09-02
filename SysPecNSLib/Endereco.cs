@@ -169,12 +169,12 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
-        public void Excluir(int id)
+        public void Excluir()
         {
             // em geral nada se exclui de uma tabela...
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"delete from enderecos where id = {id}";
+            cmd.CommandText = $"delete from enderecos where id = {Id}";
             cmd.ExecuteNonQuery();
 
 
