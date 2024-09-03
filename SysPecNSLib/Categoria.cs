@@ -26,7 +26,10 @@ namespace SysPecNSLib
             Nome = nome;
             Sigla = sigla;
         }
-        public Categoria(int id, string? nome, string? sigla)
+
+   
+
+        public Categoria(int id, string? nome, string? sigla=null)
         {
             Id = id;
             Nome = nome;
@@ -59,7 +62,7 @@ namespace SysPecNSLib
                 categoria = new(
                 dr.GetInt32(0),
                 dr.GetString(1),
-                dr.GetString(2)
+                null
                 );
             }
 
@@ -78,7 +81,7 @@ namespace SysPecNSLib
                 lista.Add(new(
                 dr.GetInt32(0),
                 dr.GetString(1),
-                dr.GetString(2)
+                null
                 ));
             }
             return lista;

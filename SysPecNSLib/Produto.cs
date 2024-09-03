@@ -168,7 +168,8 @@ namespace SysPecNSLib
                 dr.GetDouble(6),
                 dr.GetDouble(7),
                 //objeto que veio do banco e convertido em uma matriz de bytes
-                (byte[])dr.GetValue(8),
+                null,
+                //(byte[])dr.GetValue(8),
                 dr.GetDateTime(9)
 
                 ));
