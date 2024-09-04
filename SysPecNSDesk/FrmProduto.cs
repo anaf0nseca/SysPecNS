@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace SysPecNSDesk
 {
+    //Herança
+    //partial: indica que uma classe está dividida em vários arquivos
     public partial class FrmProduto : Form
     {
         public FrmProduto()
@@ -28,6 +30,8 @@ namespace SysPecNSDesk
             cmbCategoria.DisplayMember = "Nome";
             //Retorna para o banco o valor contido na coluna ID.
             cmbCategoria.ValueMember = "Id";
+            btnEditar.Enabled = false;
+
 
             CarregaGrid();
 
@@ -59,6 +63,7 @@ namespace SysPecNSDesk
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+
             //Cria um novo objeto produto
             Produto produto = new(
                 txtCodBarras.Text,
@@ -72,7 +77,7 @@ namespace SysPecNSDesk
 
             //Insere os valores no banco
             produto.Inserir();
-            if(produto.Id > 0)
+            if (produto.Id > 0)
             {
                 txtId.Text = produto.Id.ToString();
                 MessageBox.Show($"Produto gravado com sucesso com o ID: {produto.Id}");
@@ -80,9 +85,76 @@ namespace SysPecNSDesk
                 FrmProduto_Load(sender, e);
             }
 
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new(
+                int.Parse(txtId.Text),
+                txtCodBarras.Text, txtDescricao.Text,
+                double.Parse(txtValorUnit.Text),
+                txtUnidadeVenda.Text,
+                Categoria.ObterPorId(Convert.ToInt32(cmbCategoria.SelectedValue)),
+                (double)(npEstoqueMinimo.Value),
+                double.Parse(txtDesconto.Text),
+                null,
+                null
+                );
 
+            produto.Atualizar(); //Grava as alterações no banco
+            MessageBox.Show($"Produto {produto.Id} - {produto.Descricao} atualizado com sucesso!");
+
+            btnEditar.Enabled = false;
+            txtId.ReadOnly = true;
+            btnConsultar.Text = "&Consultar";
+
+
+            LimpaControles();
+            txtCodBarras.Focus();
+
+            FrmProduto_Load(sender, e);
 
 
         }
+
+        private void LimpaControles()
+        {
+            txtId.Clear();
+            txtCodBarras.Clear();
+            txtValorUnit.Clear();
+            txtUnidadeVenda.Clear();
+            txtDescricao.Clear();
+            txtDesconto.Clear();
+            npEstoqueMinimo.Value = 0;
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            if (btnConsultar.Text == "&Consultar")
+            {
+                LimpaControles();
+
+                btnConsultar.Text = "&Obter por ID";
+                txtId.Focus();
+                txtId.ReadOnly = false;
+
+            }
+            else
+            {
+                if (txtId.Text.Length > 0)
+                {
+                    Produto produto = Produto.ObterPorId(int.Parse(txtId.Text));
+                    txtCodBarras.Text = produto.CodBarras;
+                    txtValorUnit.Text = Convert.ToString(produto.ValorUnit);
+                    txtDescricao.Text = produto.Descricao;
+                    txtDesconto.Text = produto.ClasseDesconto.ToString();
+                    txtUnidadeVenda.Text = produto.UnidadeVenda;
+                    //npEstoqueMinimo.Value = produto.EstoqueMinimo;
+                    cmbCategoria.SelectedIndex =
+                        cmbCategoria.FindString(produto.Categoria.Nome);
+                    btnEditar.Enabled = true;
+                }
+            }
+        }
+
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             gpProdutos = new GroupBox();
             npEstoqueMinimo = new NumericUpDown();
             label8 = new Label();
@@ -97,7 +97,7 @@
             npEstoqueMinimo.Location = new Point(533, 114);
             npEstoqueMinimo.Name = "npEstoqueMinimo";
             npEstoqueMinimo.Size = new Size(65, 23);
-            npEstoqueMinimo.TabIndex = 26;
+            npEstoqueMinimo.TabIndex = 3;
             // 
             // label8
             // 
@@ -176,25 +176,27 @@
             btnConsultar.Location = new Point(492, 238);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(75, 23);
-            btnConsultar.TabIndex = 17;
+            btnConsultar.TabIndex = 8;
             btnConsultar.Text = "&Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // btnEditar
             // 
             btnEditar.Location = new Point(353, 239);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(87, 23);
-            btnEditar.TabIndex = 16;
+            btnEditar.TabIndex = 9;
             btnEditar.Text = "&Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAdicionar
             // 
             btnAdicionar.Location = new Point(208, 238);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(87, 23);
-            btnAdicionar.TabIndex = 15;
+            btnAdicionar.TabIndex = 7;
             btnAdicionar.Text = "&Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnAdicionar_Click;
@@ -205,21 +207,21 @@
             cmbCategoria.Location = new Point(208, 175);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(359, 23);
-            cmbCategoria.TabIndex = 13;
+            cmbCategoria.TabIndex = 5;
             // 
             // txtDesconto
             // 
             txtDesconto.Location = new Point(30, 239);
             txtDesconto.Name = "txtDesconto";
             txtDesconto.Size = new Size(142, 23);
-            txtDesconto.TabIndex = 12;
+            txtDesconto.TabIndex = 6;
             // 
             // txtDescricao
             // 
             txtDescricao.Location = new Point(30, 175);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(142, 23);
-            txtDescricao.TabIndex = 11;
+            txtDescricao.TabIndex = 4;
             // 
             // txtUnidadeVenda
             // 
@@ -227,26 +229,27 @@
             txtUnidadeVenda.Name = "txtUnidadeVenda";
             txtUnidadeVenda.PlaceholderText = "Ex: Caixa";
             txtUnidadeVenda.Size = new Size(131, 23);
-            txtUnidadeVenda.TabIndex = 10;
+            txtUnidadeVenda.TabIndex = 2;
             // 
             // txtValorUnit
             // 
             txtValorUnit.Location = new Point(208, 114);
             txtValorUnit.Name = "txtValorUnit";
             txtValorUnit.Size = new Size(127, 23);
-            txtValorUnit.TabIndex = 9;
+            txtValorUnit.TabIndex = 1;
             // 
             // txtCodBarras
             // 
             txtCodBarras.Location = new Point(30, 114);
             txtCodBarras.Name = "txtCodBarras";
             txtCodBarras.Size = new Size(142, 23);
-            txtCodBarras.TabIndex = 8;
+            txtCodBarras.TabIndex = 0;
             // 
             // txtId
             // 
             txtId.Location = new Point(30, 56);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(47, 23);
             txtId.TabIndex = 7;
             // 
@@ -287,9 +290,9 @@
             // 
             // clnValorUnitario
             // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle2;
             clnValorUnitario.HeaderText = "Valor Unitário";
             clnValorUnitario.Name = "clnValorUnitario";
             clnValorUnitario.ReadOnly = true;
@@ -332,9 +335,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             ClientSize = new Size(676, 650);
             Controls.Add(dgvProdutos);
             Controls.Add(gpProdutos);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmProduto";
             Text = "Cadastro de Produto";
             Load += FrmProduto_Load;

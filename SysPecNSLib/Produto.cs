@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace SysPecNSLib
 {
+    //Produto : Banco > Herança, a classe produto herda os métodos da classe banco, ex: var cmd = Abrir();
+    //Não é possível se a classe pai for STATIC
+    //O Produto passa a ser um TIPO de Banco
     public class Produto
     {
 
@@ -24,7 +27,7 @@ namespace SysPecNSLib
         public double EstoqueMinimo { get; set; }
         public double ClasseDesconto { get; set; }
         public byte[]? Imagem { get; set; }
-        public DateTime DataCad {  get; set; }
+        public DateTime? DataCad {  get; set; }
 
         public Produto() 
         { 
@@ -68,7 +71,7 @@ namespace SysPecNSLib
             Imagem = imagem;
         }
 
-        public Produto(int id, string? codBarras, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoriaId, double estoqueMinimo, double classeDesconto, byte[]? imagem, DateTime dataCad)
+        public Produto(int id, string? codBarras, string? descricao, double valorUnit, string? unidadeVenda, Categoria? categoriaId, double estoqueMinimo, double classeDesconto, byte[]? imagem = null, DateTime? dataCad = null)
         {
             Id = id;
             CodBarras = codBarras;
@@ -122,7 +125,7 @@ namespace SysPecNSLib
             Produto produto = new Produto();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select from produtos where id = {id}";
+            cmd.CommandText = $"select * from produtos where id = {id}";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -136,7 +139,8 @@ namespace SysPecNSLib
                 dr.GetDouble(6),
                 dr.GetDouble(7),
                 //objeto que veio do banco e convertido em uma matriz de bytes
-                (byte[])dr.GetValue(8),
+                //(byte[])dr.GetValue(8),
+                null,
                 dr.GetDateTime(9)
                 
                 );
