@@ -103,7 +103,7 @@ namespace SysPecNSDesk
             produto.Atualizar(); //Grava as alterações no banco
             MessageBox.Show($"Produto {produto.Id} - {produto.Descricao} atualizado com sucesso!");
 
-            btnEditar.Enabled = false;
+            btnEditar.Enabled = true;
             txtId.ReadOnly = true;
             btnConsultar.Text = "&Consultar";
 

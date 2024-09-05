@@ -81,5 +81,12 @@ namespace SysPecNSDesk
             frmProduto.StartPosition = FormStartPosition.CenterScreen;
             frmProduto.Show();
         }
+
+        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFornecedor frmFornecedor = new FrmFornecedor();
+            frmFornecedor.MdiParent = this;
+            frmFornecedor.Show();
+        }
     }
 }

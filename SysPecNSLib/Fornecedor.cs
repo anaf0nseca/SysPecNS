@@ -49,8 +49,9 @@ namespace SysPecNSLib
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_fornecedor_insert";
+            cmd.Parameters.AddWithValue("spid", Id);
             cmd.Parameters.AddWithValue("sprazao_social", RazaoSocial);
             cmd.Parameters.AddWithValue("spfantasia", Fantasia);
             cmd.Parameters.AddWithValue("spcnpj", Cnpj);
