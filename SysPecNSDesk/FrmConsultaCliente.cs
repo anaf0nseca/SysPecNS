@@ -69,16 +69,82 @@ namespace SysPecNSDesk
         }
 
 
-
-        private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = 0;
+            //Identifica a linha atual(que foi clicada)
             int posicaoLinha = dgvClientes.CurrentRow.Index;
+
+            //Atribui o valor da celula 0 da linha atual(id)
             id = Convert.ToInt32(dgvClientes.Rows[posicaoLinha].Cells[0].Value);
+
 
             //MessageBox.Show(id.ToString());
 
+            //Mudar aba ao clicar no cliente 
             this.tabConsultaCliente.SelectedTab = tabPageEditar;
+
+
+            //Identifica o cliente pelo ID da linha selecionada no DGV
+            Cliente cliente1 = Cliente.ObterPorId(id);
+            txtId.Text = cliente1.Id.ToString();
+            txtCpf.Text = cliente1.Cpf;
+            txtNome.Text = cliente1.Nome;
+            txtTelefone.Text = cliente1.Telefone;
+            txtEmail.Text = cliente1.Email;
+
+            //Não permite alteração dos campos de CPF e Email que são chaves UNICAS
+            txtCpf.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+
+
+
+            Cliente cliente = new(
+                Convert.ToInt32(txtId.Text),
+                txtNome.Text,
+                txtTelefone.Text,
+                dtpDataNasc.Value
+                );
+
+            cliente.Atualizar();
+
+            //MessageBox.Show($"Cadastro do cliente {cliente.Nome} atualizado com sucesso!");
+        }
+
+
+        private void CarregaGridEndereco(int clienteId)
+        {
+            var listaEnderecos = Endereco.ObterListaPorCliente(clienteId);
+            int cont = 0;
+            dgvEnderecos.Rows.Clear();
+
+            foreach (var endereco in listaEnderecos)
+            {
+                int rowIndex = dgvEnderecos.Rows.Add();
+                dgvEnderecos.Rows[cont].Cells[0].Value = endereco.Cep;
+                dgvEnderecos.Rows[cont].Cells[1].Value = endereco.Logradouro;
+                dgvEnderecos.Rows[cont].Cells[2].Value = endereco.Numero;
+                dgvEnderecos.Rows[cont].Cells[3].Value = endereco.Complemento;
+                dgvEnderecos.Rows[cont].Cells[4].Value = endereco.Bairro;
+                dgvEnderecos.Rows[cont].Cells[5].Value = endereco.Cidade;
+                dgvEnderecos.Rows[cont].Cells[6].Value = endereco.Uf;
+                dgvEnderecos.Rows[cont].Cells[7].Value = endereco.Tipo_Endereco;
+
+                cont++;
+
+            }
+
+        }
+
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            int clienteId = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
+            CarregaGridEndereco(clienteId);
+        }
+
+        private void tabPageEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

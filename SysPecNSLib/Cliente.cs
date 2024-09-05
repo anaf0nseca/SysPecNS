@@ -31,12 +31,23 @@ namespace SysPecNSLib
 
 
 
-
-
         public Cliente()
         {
             //Construtor vazio
         }
+
+        public Cliente(int id, string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc)
+        {
+            //Construtor com todos os campos
+            Id = id;
+            Nome = nome;
+            Cpf = cpf;
+            Telefone = telefone;
+            Email = email;
+            Data_Nasc = data_Nasc;
+
+        }
+
 
         public Cliente(int id, string? nome, string? cpf, string? telefone, string? email, DateTime? data_Nasc, DateTime data_Cad, bool ativo )
         {
@@ -61,6 +72,16 @@ namespace SysPecNSLib
             Email = email;
             Data_Nasc = data_Nasc;
             Data_Cad = data_Cad;
+
+        }
+
+        public Cliente(int id, string? nome, string? telefone, DateTime? data_Nasc)
+        {
+            //Construtor sem o ID, para inserção
+            Id = id;
+            Nome = nome;
+            Telefone = telefone;
+            Data_Nasc = data_Nasc;
 
         }
 

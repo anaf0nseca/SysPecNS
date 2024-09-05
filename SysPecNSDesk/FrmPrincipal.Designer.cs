@@ -47,6 +47,7 @@
             operaçToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            listaToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -117,6 +118,7 @@
             // 
             // fornecedoresToolStripMenuItem
             // 
+            fornecedoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaToolStripMenuItem1 });
             fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
             fornecedoresToolStripMenuItem.Size = new Size(180, 22);
             fornecedoresToolStripMenuItem.Text = "Fornecedores";
@@ -177,6 +179,12 @@
             sairToolStripMenuItem.Text = "&Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
+            // listaToolStripMenuItem1
+            // 
+            listaToolStripMenuItem1.Name = "listaToolStripMenuItem1";
+            listaToolStripMenuItem1.Size = new Size(180, 22);
+            listaToolStripMenuItem1.Text = "Lista";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -217,5 +225,6 @@
         private ToolStripMenuItem caixaToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem fornecedoresToolStripMenuItem;
+        private ToolStripMenuItem listaToolStripMenuItem1;
     }
 }

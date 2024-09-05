@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -145,6 +146,33 @@ namespace SysPecNSLib
             return enderecos;
         }
         
+        public static List<Endereco> ObterListaPorCliente(int clienteId)
+        {
+            List<Endereco> enderecos = new();
+            var cmd= Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"select * from enderecos where cliente_id = {clienteId}";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                enderecos.Add(
+                    new(
+                        dr.GetInt32(0),
+                        Cliente.ObterPorId(dr.GetInt32(1)),
+                        dr.GetString(2),
+                        dr.GetString(3),
+                        dr.GetString(4),
+                        dr.GetString(5),
+                        dr.GetString(6),
+                        dr.GetString(7),
+                        dr.GetString(8),
+                        dr.GetString(9)
+                        )
+                    );
+            }
+            return enderecos;
+        }
+
         //bool
         public void  Atualizar(int id)
         {

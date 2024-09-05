@@ -66,51 +66,6 @@ namespace SysPecNSDesk
         }
 
 
-        //private void CarregaGrid(string nome = "")
-        //{
-        //    //Obtem lista de clientes
-        //    var lista = Cliente.ObterLista(nome);
-
-        //    //Limpa as linhas da tabela antes de consultar as informações de cada campo
-        //    dgvClientes.Rows.Clear();
-        //    //contador para alterar o índice a cada cliente da lista
-        //    int cont = 0;
-        //    foreach (var cliente in lista)
-        //    {
-        //        //Adiciona uma nova linha a tabela
-        //        dgvClientes.Rows.Add();
-
-        //        //Preenche a linha com as colunas e seus respectivos dados
-        //        dgvClientes.Rows[cont].Cells[0].Value = cliente.Id;
-        //        dgvClientes.Rows[cont].Cells[1].Value = cliente.Nome;
-        //        dgvClientes.Rows[cont].Cells[2].Value = cliente.Cpf;
-        //        dgvClientes.Rows[cont].Cells[3].Value = cliente.Telefone;
-        //        dgvClientes.Rows[cont].Cells[4].Value = cliente.Email;
-        //        dgvClientes.Rows[cont].Cells[5].Value = cliente.Data_Nasc;
-        //        dgvClientes.Rows[cont].Cells[6].Value = cliente.Ativo;
-
-        //        //Soma +1 ao contador de cliente
-        //        cont++;
-
-
-        //    }
-
-        //}
-
-        //private void txtBusca_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Se algo for digitado no campo, o texto é utilizado como parâmetro da classe CarregaGrid
-        //    if (txtBusca.Text.Length > 0)
-        //    {
-        //        CarregaGrid(txtBusca.Text);
-        //    }
-        //    else
-        //    {
-        //        //Se nada for digitado, a classe é executada normalmente e exibe todos os clientes
-        //        CarregaGrid();
-        //    }
-        //}
-
 
         private void btnCadastrarEnd_Click(object sender, EventArgs e)
         {
