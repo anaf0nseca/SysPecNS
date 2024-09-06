@@ -58,19 +58,22 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(85, 257);
+            btnAdicionar.Image = Properties.Resources.Add;
+            btnAdicionar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdicionar.Location = new Point(27, 257);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(75, 23);
+            btnAdicionar.Size = new Size(107, 45);
             btnAdicionar.TabIndex = 0;
             btnAdicionar.Text = "&Adicionar";
+            btnAdicionar.TextAlign = ContentAlignment.MiddleRight;
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(246, 257);
+            btnEditar.Location = new Point(243, 257);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(75, 23);
+            btnEditar.Size = new Size(142, 45);
             btnEditar.TabIndex = 1;
             btnEditar.Text = "&Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -78,9 +81,9 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(402, 257);
+            btnConsultar.Location = new Point(461, 257);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(75, 23);
+            btnConsultar.Size = new Size(142, 45);
             btnConsultar.TabIndex = 2;
             btnConsultar.Text = "&Consultar";
             btnConsultar.UseVisualStyleBackColor = true;

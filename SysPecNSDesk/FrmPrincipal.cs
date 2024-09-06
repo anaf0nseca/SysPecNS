@@ -41,6 +41,14 @@ namespace SysPecNSDesk
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            FrmLogin frmLogin = new FrmLogin();
+            
+            frmLogin.ShowDialog();
+
+            Text += $" ({Program.UsuarioLogado.Email})";
+
+            //Exibe o nome do usuário logado e o nível do mesmo na barra inferior do formulário
+            toolStripStatusLabel1.Text = $"{Program.UsuarioLogado.Nome} - {Program.UsuarioLogado.Nivel.Nome}";
 
         }
 
