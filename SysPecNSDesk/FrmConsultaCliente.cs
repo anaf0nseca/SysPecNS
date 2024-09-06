@@ -99,14 +99,7 @@ namespace SysPecNSDesk
 
 
 
-            Cliente cliente = new(
-                Convert.ToInt32(txtId.Text),
-                txtNome.Text,
-                txtTelefone.Text,
-                dtpDataNasc.Value
-                );
 
-            cliente.Atualizar();
 
             //MessageBox.Show($"Cadastro do cliente {cliente.Nome} atualizado com sucesso!");
         }
@@ -145,6 +138,19 @@ namespace SysPecNSDesk
         private void tabPageEditar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new(
+                Convert.ToInt32(txtId.Text),
+                txtNome.Text,
+                txtTelefone.Text,
+                dtpDataNasc.Value
+                );
+
+            cliente.Atualizar();
+            MessageBox.Show($"Cadastro do(a) cliente {cliente.Nome} atualizado com sucesso!");
         }
     }
 }
