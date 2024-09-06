@@ -1,16 +1,17 @@
 -- MySQL Workbench Forward Engineering
+SELECT * from niveis;
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
+-- -----------------------------------------------------usuarios
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema syspecdb
 -- -----------------------------------------------------
-drop Schema `syspecdb`;
+-- drop Schema `syspecdb`;
 -- -----------------------------------------------------
 -- Schema syspecdb
 -- -----------------------------------------------------
@@ -475,10 +476,10 @@ DELIMITER ;
 
 DELIMITER $$
 USE `syspecdb`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_pedido_insert`(spusuario_id int, spcliente_id int, spstatus char(1), spdesconto decimal(10,2))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_pedido_insert`(spusuario_id int, spcliente_id int)
 begin
 	insert into pedidos
-    values(0, spusuario_id, spcliente_id,default , spstatus, spdesconto);
+    values(0, spusuario_id, spcliente_id,default , 'A', 0);
     select last_insert_id();
 end$$
 
