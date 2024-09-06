@@ -81,12 +81,14 @@ namespace SysPecNSDesk
 
             //MessageBox.Show(id.ToString());
 
-            //Mudar aba ao clicar no cliente 
+            //Mudar aba ao clicar 2x no cliente desejado 
             this.tabConsultaCliente.SelectedTab = tabPageEditar;
 
 
             //Identifica o cliente pelo ID da linha selecionada no DGV
             Cliente cliente1 = Cliente.ObterPorId(id);
+
+            //Preenche os campos com as informações do cliente após obtê-los através do ID
             txtId.Text = cliente1.Id.ToString();
             txtCpf.Text = cliente1.Cpf;
             txtNome.Text = cliente1.Nome;
@@ -98,22 +100,31 @@ namespace SysPecNSDesk
             txtEmail.ReadOnly = true;
 
 
-
-
-
-            //MessageBox.Show($"Cadastro do cliente {cliente.Nome} atualizado com sucesso!");
         }
 
 
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            //Armazena o número do ID do cliente contido na linha selecionada do GRID, na variavel cliente ID   
+            int clienteId = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
+            CarregaGridEndereco(clienteId);
+        }
         private void CarregaGridEndereco(int clienteId)
         {
+            //retorna a lista de endereços associados ao ID do Cliente selecionado
             var listaEnderecos = Endereco.ObterListaPorCliente(clienteId);
+
+            //Inicia o contador 
             int cont = 0;
             dgvEnderecos.Rows.Clear();
 
+            //Insere os dados de cada endereço associado a esse cliente
             foreach (var endereco in listaEnderecos)
             {
+                //Insere uma nova linha na tabela
                 int rowIndex = dgvEnderecos.Rows.Add();
+
+                //Associa cada célula da linha a uma informação do endereço
                 dgvEnderecos.Rows[cont].Cells[0].Value = endereco.Cep;
                 dgvEnderecos.Rows[cont].Cells[1].Value = endereco.Logradouro;
                 dgvEnderecos.Rows[cont].Cells[2].Value = endereco.Numero;
@@ -123,17 +134,14 @@ namespace SysPecNSDesk
                 dgvEnderecos.Rows[cont].Cells[6].Value = endereco.Uf;
                 dgvEnderecos.Rows[cont].Cells[7].Value = endereco.Tipo_Endereco;
 
+
+                //Soma +1 no contador
                 cont++;
 
             }
 
         }
 
-        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
-        {
-            int clienteId = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
-            CarregaGridEndereco(clienteId);
-        }
 
         private void tabPageEditar_Click(object sender, EventArgs e)
         {
@@ -151,6 +159,13 @@ namespace SysPecNSDesk
 
             cliente.Atualizar();
             MessageBox.Show($"Cadastro do(a) cliente {cliente.Nome} atualizado com sucesso!");
+
+            FrmConsultaCliente_Load(sender, e);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
