@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             gpProdutos = new GroupBox();
             npEstoqueMinimo = new NumericUpDown();
             label8 = new Label();
@@ -85,6 +85,8 @@
             gpProdutos.Controls.Add(txtValorUnit);
             gpProdutos.Controls.Add(txtCodBarras);
             gpProdutos.Controls.Add(txtId);
+            gpProdutos.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gpProdutos.ForeColor = Color.White;
             gpProdutos.Location = new Point(12, 12);
             gpProdutos.Name = "gpProdutos";
             gpProdutos.Size = new Size(651, 316);
@@ -94,6 +96,7 @@
             // 
             // npEstoqueMinimo
             // 
+            npEstoqueMinimo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             npEstoqueMinimo.Location = new Point(533, 114);
             npEstoqueMinimo.Name = "npEstoqueMinimo";
             npEstoqueMinimo.Size = new Size(65, 23);
@@ -102,33 +105,37 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label8.Location = new Point(30, 219);
             label8.Name = "label8";
-            label8.Size = new Size(57, 15);
+            label8.Size = new Size(58, 15);
             label8.TabIndex = 25;
             label8.Text = "Desconto";
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label7.Location = new Point(208, 157);
             label7.Name = "label7";
-            label7.Size = new Size(58, 15);
+            label7.Size = new Size(57, 15);
             label7.TabIndex = 24;
             label7.Text = "Categoria";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label6.Location = new Point(30, 157);
             label6.Name = "label6";
-            label6.Size = new Size(58, 15);
+            label6.Size = new Size(59, 15);
             label6.TabIndex = 23;
             label6.Text = "Descrição";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label5.Location = new Point(533, 96);
             label5.Name = "label5";
             label5.Size = new Size(94, 15);
@@ -138,71 +145,89 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label4.Location = new Point(369, 96);
             label4.Name = "label4";
-            label4.Size = new Size(102, 15);
+            label4.Size = new Size(103, 15);
             label4.TabIndex = 21;
             label4.Text = "Unidade de Venda";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label3.Location = new Point(208, 96);
             label3.Name = "label3";
-            label3.Size = new Size(78, 15);
+            label3.Size = new Size(79, 15);
             label3.TabIndex = 20;
             label3.Text = "Valor Unitário";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label2.Location = new Point(30, 96);
             label2.Name = "label2";
-            label2.Size = new Size(97, 15);
+            label2.Size = new Size(96, 15);
             label2.TabIndex = 19;
             label2.Text = "Código de Barras";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(30, 38);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(20, 15);
             label1.TabIndex = 18;
             label1.Text = "ID";
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(492, 238);
+            btnConsultar.BackColor = Color.FromArgb(35, 84, 150);
+            btnConsultar.FlatStyle = FlatStyle.Popup;
+            btnConsultar.Font = new Font("Segoe UI", 8.25F);
+            btnConsultar.ForeColor = Color.White;
+            btnConsultar.Location = new Point(500, 239);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(75, 23);
+            btnConsultar.Size = new Size(127, 23);
             btnConsultar.TabIndex = 8;
             btnConsultar.Text = "&Consultar";
-            btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.UseVisualStyleBackColor = false;
             btnConsultar.Click += btnConsultar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(353, 239);
+            btnEditar.BackColor = Color.FromArgb(35, 84, 150);
+            btnEditar.FlatStyle = FlatStyle.Popup;
+            btnEditar.Font = new Font("Segoe UI", 8.25F);
+            btnEditar.ForeColor = Color.White;
+            btnEditar.Location = new Point(341, 238);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(87, 23);
+            btnEditar.Size = new Size(127, 23);
             btnEditar.TabIndex = 9;
             btnEditar.Text = "&Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(208, 238);
+            btnAdicionar.BackColor = Color.FromArgb(35, 84, 150);
+            btnAdicionar.FlatStyle = FlatStyle.Popup;
+            btnAdicionar.Font = new Font("Segoe UI", 8.25F);
+            btnAdicionar.ForeColor = Color.White;
+            btnAdicionar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdicionar.Location = new Point(190, 238);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(87, 23);
+            btnAdicionar.Size = new Size(127, 23);
             btnAdicionar.TabIndex = 7;
             btnAdicionar.Text = "&Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
             // cmbCategoria
             // 
+            cmbCategoria.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Location = new Point(208, 175);
             cmbCategoria.Name = "cmbCategoria";
@@ -211,6 +236,7 @@
             // 
             // txtDesconto
             // 
+            txtDesconto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             txtDesconto.Location = new Point(30, 239);
             txtDesconto.Name = "txtDesconto";
             txtDesconto.Size = new Size(142, 23);
@@ -218,6 +244,7 @@
             // 
             // txtDescricao
             // 
+            txtDescricao.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             txtDescricao.Location = new Point(30, 175);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(142, 23);
@@ -225,6 +252,7 @@
             // 
             // txtUnidadeVenda
             // 
+            txtUnidadeVenda.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             txtUnidadeVenda.Location = new Point(369, 114);
             txtUnidadeVenda.Name = "txtUnidadeVenda";
             txtUnidadeVenda.PlaceholderText = "Ex: Caixa";
@@ -233,6 +261,7 @@
             // 
             // txtValorUnit
             // 
+            txtValorUnit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             txtValorUnit.Location = new Point(208, 114);
             txtValorUnit.Name = "txtValorUnit";
             txtValorUnit.Size = new Size(127, 23);
@@ -240,6 +269,7 @@
             // 
             // txtCodBarras
             // 
+            txtCodBarras.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             txtCodBarras.Location = new Point(30, 114);
             txtCodBarras.Name = "txtCodBarras";
             txtCodBarras.Size = new Size(142, 23);
@@ -257,6 +287,7 @@
             // 
             dgvProdutos.AllowUserToAddRows = false;
             dgvProdutos.AllowUserToDeleteRows = false;
+            dgvProdutos.BackgroundColor = Color.SteelBlue;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnId, clnCodigoBarras, clnDescricao, clnValorUnitario, clnUnidadeVenda, clnCategoria, clnEstoqueMinimo, clnDesconto, clnDataCadastro });
             dgvProdutos.Location = new Point(13, 334);
@@ -290,9 +321,9 @@
             // 
             // clnValorUnitario
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle1;
             clnValorUnitario.HeaderText = "Valor Unitário";
             clnValorUnitario.Name = "clnValorUnitario";
             clnValorUnitario.ReadOnly = true;
@@ -336,6 +367,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackColor = Color.SteelBlue;
             ClientSize = new Size(676, 650);
             Controls.Add(dgvProdutos);
             Controls.Add(gpProdutos);

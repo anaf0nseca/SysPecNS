@@ -83,6 +83,26 @@ namespace SysPecNSDesk.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap business_application_addmale_useradd_insert_add_user_client_2312 {
+            get {
+                object obj = ResourceManager.GetObject("business_application_addmale_useradd_insert_add_user_client_2312", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_application_addmale_useradd_insert_add_user_client_23121 {
+            get {
+                object obj = ResourceManager.GetObject("business_application_addmale_useradd_insert_add_user_client_23121", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cancel {
             get {
                 object obj = ResourceManager.GetObject("Cancel", resourceCulture);
@@ -116,6 +136,26 @@ namespace SysPecNSDesk.Properties {
         internal static System.Drawing.Bitmap Edit_Alt {
             get {
                 object obj = ResourceManager.GetObject("Edit Alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap muscular_car_service_worker_repairing_vehicle {
+            get {
+                object obj = ResourceManager.GetObject("muscular-car-service-worker-repairing-vehicle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap supply_truck_box_shipping_transportation_transport_delivery_icon_260527 {
+            get {
+                object obj = ResourceManager.GetObject("supply_truck_box_shipping_transportation_transport_delivery_icon_260527", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

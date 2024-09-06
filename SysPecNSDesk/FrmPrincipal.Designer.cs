@@ -207,7 +207,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImageLayout = ImageLayout.Center;
+            BackgroundImage = Properties.Resources.muscular_car_service_worker_repairing_vehicle;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 559);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);

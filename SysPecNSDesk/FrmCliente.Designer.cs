@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             groupBox1 = new GroupBox();
             tabCliente = new TabControl();
             tabPageDadosCliente = new TabPage();
+            pictureBox1 = new PictureBox();
             btnCadastrarEnd = new Button();
             btnInserir = new Button();
             label6 = new Label();
@@ -68,15 +70,17 @@
             groupBox1.SuspendLayout();
             tabCliente.SuspendLayout();
             tabPageDadosCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPageEnderecos.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.SteelBlue;
             groupBox1.Controls.Add(tabCliente);
             groupBox1.Location = new Point(-1, -21);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(563, 373);
+            groupBox1.Size = new Size(573, 371);
             groupBox1.TabIndex = 20;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
@@ -88,11 +92,12 @@
             tabCliente.Location = new Point(11, 30);
             tabCliente.Name = "tabCliente";
             tabCliente.SelectedIndex = 0;
-            tabCliente.Size = new Size(544, 335);
+            tabCliente.Size = new Size(544, 330);
             tabCliente.TabIndex = 0;
             // 
             // tabPageDadosCliente
             // 
+            tabPageDadosCliente.Controls.Add(pictureBox1);
             tabPageDadosCliente.Controls.Add(btnCadastrarEnd);
             tabPageDadosCliente.Controls.Add(btnInserir);
             tabPageDadosCliente.Controls.Add(label6);
@@ -110,10 +115,20 @@
             tabPageDadosCliente.Location = new Point(4, 24);
             tabPageDadosCliente.Name = "tabPageDadosCliente";
             tabPageDadosCliente.Padding = new Padding(3);
-            tabPageDadosCliente.Size = new Size(536, 307);
+            tabPageDadosCliente.Size = new Size(536, 302);
             tabPageDadosCliente.TabIndex = 0;
             tabPageDadosCliente.Text = "Dados do Cliente";
             tabPageDadosCliente.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.business_application_addmale_useradd_insert_add_user_client_23121;
+            pictureBox1.Location = new Point(439, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(78, 78);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 32;
+            pictureBox1.TabStop = false;
             // 
             // btnCadastrarEnd
             // 
@@ -430,7 +445,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(566, 351);
+            ControlBox = false;
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmCliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Cliente";
@@ -439,6 +456,7 @@
             tabCliente.ResumeLayout(false);
             tabPageDadosCliente.ResumeLayout(false);
             tabPageDadosCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPageEnderecos.ResumeLayout(false);
             tabPageEnderecos.PerformLayout();
             ResumeLayout(false);
@@ -482,5 +500,6 @@
         private Button btnSalvarEndereco;
         private Button btnAdicionarEndereco;
         private Button btnFechar;
+        private PictureBox pictureBox1;
     }
 }
