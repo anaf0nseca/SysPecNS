@@ -77,6 +77,8 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(38, 83);
             label1.Name = "label1";
             label1.Size = new Size(36, 15);
@@ -86,9 +88,11 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(38, 148);
             label2.Name = "label2";
-            label2.Size = new Size(39, 15);
+            label2.Size = new Size(40, 15);
             label2.TabIndex = 5;
             label2.Text = "Senha";
             // 
@@ -102,7 +106,7 @@
             label3.Name = "label3";
             label3.Size = new Size(220, 30);
             label3.TabIndex = 6;
-            label3.Text = "Area de Login SysPec";
+            label3.Text = "Área de Login SysPec";
             // 
             // pictureBox1
             // 
@@ -131,6 +135,8 @@
             Controls.Add(txtEmail);
             Controls.Add(btnCancelar);
             Controls.Add(btnLogar);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

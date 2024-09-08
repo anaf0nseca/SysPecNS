@@ -66,6 +66,7 @@
             // 
             // gpProdutos
             // 
+            gpProdutos.BackColor = Color.FromArgb(29, 96, 150);
             gpProdutos.Controls.Add(npEstoqueMinimo);
             gpProdutos.Controls.Add(label8);
             gpProdutos.Controls.Add(label7);
@@ -287,7 +288,7 @@
             // 
             dgvProdutos.AllowUserToAddRows = false;
             dgvProdutos.AllowUserToDeleteRows = false;
-            dgvProdutos.BackgroundColor = Color.SteelBlue;
+            dgvProdutos.BackgroundColor = Color.FromArgb(29, 96, 150);
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnId, clnCodigoBarras, clnDescricao, clnValorUnitario, clnUnidadeVenda, clnCategoria, clnEstoqueMinimo, clnDesconto, clnDataCadastro });
             dgvProdutos.Location = new Point(13, 334);
