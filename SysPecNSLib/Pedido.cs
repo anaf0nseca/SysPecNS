@@ -164,8 +164,8 @@ namespace SysPecNSLib
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
-                    dr.GetDouble(5)
-                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
+                    dr.GetDouble(5),
+                    ItemPedido.ObterListaPorPedido(dr.GetInt32(6))
 
                     ));
             }
@@ -194,8 +194,8 @@ namespace SysPecNSLib
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
-                    dr.GetDouble(5)
-                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
+                    dr.GetDouble(5),
+                    ItemPedido.ObterListaPorPedido(dr.GetInt32(6))
 
                     ));
             }
@@ -223,8 +223,8 @@ namespace SysPecNSLib
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
-                    dr.GetDouble(5)
-                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
+                    dr.GetDouble(5),
+                    ItemPedido.ObterListaPorPedido(dr.GetInt32(6))
 
                     ));
             }
