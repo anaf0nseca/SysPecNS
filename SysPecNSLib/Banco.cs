@@ -10,6 +10,8 @@ namespace SysPecNSLib
     /// <summary>
     /// Classe estática (não necessita declaração de instancia) de conexão de banco de dados MYSQL
     /// </summary>
+    /// classe abstrata não pode gerar instância (new()), pode ser usada como classe base
+    /// public abstract class Banco
     public static class Banco //classe de conexão de banco de dados
     {
         /// <summary>

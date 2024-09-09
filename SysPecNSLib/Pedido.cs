@@ -46,6 +46,16 @@ namespace SysPecNSLib
             Desconto = desconto;
         }
 
+        public Pedido(int id, Usuario usuario, Cliente cliente, DateTime data, string status, double desconto)
+        {
+            Id = id;
+            Usuario = usuario;
+            Cliente = cliente;
+            Data = data;
+            Status = status;
+            Desconto = desconto;
+        }
+
 
         //Todas as propriedades
         public Pedido(int id, Usuario usuario, Cliente cliente, DateTime data, string status, double desconto, List<ItemPedido> itens)
@@ -70,26 +80,23 @@ namespace SysPecNSLib
 
             //id do pedido
             Id = Convert.ToInt32(cmd.ExecuteScalar());
-
-
         }
 
-        public void Alterar()
+        public void AlterarStatus()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "sp_pedido_update";
-            cmd.Parameters.AddWithValue("spid", Id);
-            cmd.Parameters.AddWithValue("spusuario_id", Usuario.Id);
-            cmd.Parameters.AddWithValue("spcliente_id", Cliente.Id);
-            cmd.Parameters.AddWithValue("spstatus", Status);
-            cmd.Parameters.AddWithValue("spdesconto", Desconto);
-
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"update pedidos set status = {Status} where id = {Id}";
+        
             cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
+        }
 
-
-
+        public void AtualizarDesconto()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"update pedidos set desconto = {Desconto} where id = {Id}";
+            cmd.ExecuteNonQuery();
         }
 
         public static Pedido ObterPorId(int id)
@@ -99,16 +106,20 @@ namespace SysPecNSLib
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"select * from pedidos where id = {id}";
             var dr = cmd.ExecuteReader();
+            //Retorna um valor ou nenhum registro
             if (dr.Read())
             {
+                //pedido.Id = dr.GetInt32(0);
+                //pedido.Usuario = Usuario.ObterPorId(dr.GetInt32(1));
+
                 pedido = new(
-                    //dr.GetInt32(0),
+                    dr.GetInt32(0),
                     Usuario.ObterPorId(dr.GetInt32(1)),
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
                     dr.GetDouble(5)
-                    //ItemPedido.ObterListaPorId(6)
+                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
 
                     );
             }
@@ -116,45 +127,109 @@ namespace SysPecNSLib
             return pedido;
         }
 
-
-        public static List<Pedido> ObterLista(int idCliente = 0, int idUsuario = 0)
+        /// <summary>
+        /// Método para obter lista de todos os pedidos existentes no sistema
+        /// </summary>
+        /// <returns> Lista de todos os pedidos, se existir. </returns>
+        public static List<Pedido> ObterLista()
         {
             //Exemplo: ObterLista(0,8); todos os pedidos vendidos pelo usuário 8
+            //pedidos é um objeto do tipo LISTA de PEDIDOS
             List<Pedido> pedidos = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            if (idCliente > 0 && idUsuario > 0)
-            {
-                cmd.CommandText = $"select * from pedidos where cliente id = {idCliente} and usuario_id = {idUsuario}";
+            //if (idCliente > 0 && idUsuario > 0)
+            //{
+            //    cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente} and usuario_id = {idUsuario}";
 
-            }else if (idCliente > 0) 
-            {
-                cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente}";
+            //}else if (idCliente > 0) 
+            //{
+            //    cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente}";
 
-            }else if (idUsuario > 0) 
-            { 
-                cmd.CommandText = $"select * from pedidos where usuario_id = {idUsuario}";
+            //}else if (idUsuario > 0) 
+            //{ 
+            //    cmd.CommandText = $"select * from pedidos where usuario_id = {idUsuario}";
 
-            }else
-            {   
-                cmd.CommandText = "select * from pedidos order by ";
-            }
+            //}else
+            //{   
+            cmd.CommandText = "select * from pedidos order by data";
+            
 
             var dr = cmd.ExecuteReader();
             while (dr.Read()) 
             {
                 pedidos.Add(new(
-                    //dr.GetInt32(0),
+                    dr.GetInt32(0),
                     Usuario.ObterPorId(dr.GetInt32(1)),
                     Cliente.ObterPorId(dr.GetInt32(2)),
                     dr.GetDateTime(3),
                     dr.GetString(4),
                     dr.GetDouble(5)
-                    //ItemPedido.ObterListaPorId(6)
+                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
 
                     ));
             }
             return pedidos;
         }
+
+
+
+        /// <summary>
+        /// Método para obter lista de pedidos de acordo com o cliente especificado
+        /// </summary>
+        /// <param name="idCliente"> ID do cliente </param>
+        /// <returns>Lista de pedidos do cliente informado, caso haja pedidos registrados.</returns>
+        public static List<Pedido> ObterListaPorCliente(int idCliente) 
+        {
+            List<Pedido> pedidosCliente = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente}";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                pedidosCliente.Add(new(
+                    dr.GetInt32(0),
+                    Usuario.ObterPorId(dr.GetInt32(1)),
+                    Cliente.ObterPorId(dr.GetInt32(2)),
+                    dr.GetDateTime(3),
+                    dr.GetString(4),
+                    dr.GetDouble(5)
+                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
+
+                    ));
+            }
+            return pedidosCliente;
+        }
+
+
+        /// <summary>
+        /// Método para obter lista de pedidos de acordo com o usuário especificado (no caso, um vendedor)
+        /// </summary>
+        /// <param name="idUsuario"> ID do Usuário logado </param>
+        /// <returns> Lista de pedidos do usuário informado, caso haja pedidos registrados no sistema. </returns>
+        public static List<Pedido> ObterListaPorUsuario(int idUsuario) 
+        {
+            List<Pedido> pedidosUsuario = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = $"select * from pedidos where usuario_id = {idUsuario}";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                pedidosUsuario.Add(new(
+                    dr.GetInt32(0),
+                    Usuario.ObterPorId(dr.GetInt32(1)),
+                    Cliente.ObterPorId(dr.GetInt32(2)),
+                    dr.GetDateTime(3),
+                    dr.GetString(4),
+                    dr.GetDouble(5)
+                    //ItemPedido.ObterListaPorPedido(dr.GetInt32(6));
+
+                    ));
+            }
+            return pedidosUsuario;
+        }
+
     }
 }
