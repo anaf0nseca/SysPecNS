@@ -36,7 +36,11 @@ namespace SysPecNSLib
             Desconto = desconto;
         }
 
-
+        public Pedido(Usuario usuario, Cliente cliente)
+        {
+            Usuario = usuario;
+            Cliente = cliente;
+        }
 
         //sem ID, data e status
         public Pedido(Usuario usuario, Cliente cliente, double desconto)

@@ -274,7 +274,7 @@
             tabPageEnderecos.Location = new Point(4, 24);
             tabPageEnderecos.Name = "tabPageEnderecos";
             tabPageEnderecos.Padding = new Padding(3);
-            tabPageEnderecos.Size = new Size(536, 307);
+            tabPageEnderecos.Size = new Size(536, 302);
             tabPageEnderecos.TabIndex = 1;
             tabPageEnderecos.Text = "Endereços";
             tabPageEnderecos.UseVisualStyleBackColor = true;
@@ -478,7 +478,6 @@
         private DateTimePicker dtpDataNasc;
         private TextBox txtEmail;
         private TextBox txtTelefone;
-        private TextBox txtCpf;
         private TextBox txtNome;
         private TextBox txtId;
         private Label label8;
@@ -501,5 +500,6 @@
         private Button btnAdicionarEndereco;
         private Button btnFechar;
         private PictureBox pictureBox1;
+        protected TextBox txtCpf;
     }
 }
