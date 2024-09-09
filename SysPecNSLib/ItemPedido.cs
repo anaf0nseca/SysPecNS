@@ -74,8 +74,9 @@ namespace SysPecNSLib
             }
                 return itens;
         }
-        //spid int,spquantidade decimal(10,2), spdesconto decimal(10,2))
-        public void Alterar()
+
+
+        public void Atualizar()
         {
             var cmd = Banco.Abrir();
             cmd.CommandType= System.Data.CommandType.StoredProcedure;
