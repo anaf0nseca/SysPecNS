@@ -28,7 +28,7 @@ namespace SysPecNSDesk
         {
 
             //Verifica se os campos de email e senha estão preenchidos
-            if(txtEmail.Text !=string.Empty && txtSenha.Text !=string.Empty)
+            if (txtEmail.Text != string.Empty && txtSenha.Text != string.Empty)
             {
                 //chama o método para efetuar login, recebendo o email e a senha e faz a validação
                 var usuario = Usuario.EfetuarLogin(txtEmail.Text, txtSenha.Text);
@@ -69,5 +69,10 @@ namespace SysPecNSDesk
             }
 
         }//fim evento click do botão logar
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

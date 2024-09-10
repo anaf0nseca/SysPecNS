@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             tabConsultaCliente = new TabControl();
             tabPageBuscar = new TabPage();
@@ -126,11 +126,13 @@
             // 
             dgvEnderecos.AllowUserToAddRows = false;
             dgvEnderecos.AllowUserToDeleteRows = false;
+            dgvEnderecos.BackgroundColor = Color.SteelBlue;
             dgvEnderecos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEnderecos.Columns.AddRange(new DataGridViewColumn[] { clnIdEnd, clnCep, clnLogradouro, clnNumero, clnComplemento, clnBairro, clnCidade, clnUf, clnTipoEnd });
             dgvEnderecos.Location = new Point(23, 377);
             dgvEnderecos.Name = "dgvEnderecos";
             dgvEnderecos.ReadOnly = true;
+            dgvEnderecos.RowHeadersVisible = false;
             dgvEnderecos.Size = new Size(707, 172);
             dgvEnderecos.TabIndex = 43;
             // 
@@ -211,17 +213,18 @@
             dgvClientes.AllowUserToDeleteRows = false;
             dgvClientes.AllowUserToResizeColumns = false;
             dgvClientes.AllowUserToResizeRows = false;
+            dgvClientes.BackgroundColor = Color.SteelBlue;
             dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnAtivo });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle6;
             dgvClientes.Location = new Point(23, 59);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
@@ -273,9 +276,9 @@
             // 
             // clnDataNasc
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            clnDataNasc.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            clnDataNasc.DefaultCellStyle = dataGridViewCellStyle5;
             clnDataNasc.Frozen = true;
             clnDataNasc.HeaderText = "Data de Nascimento";
             clnDataNasc.Name = "clnDataNasc";
@@ -317,7 +320,7 @@
             // btnCadastrarEnd
             // 
             btnCadastrarEnd.Enabled = false;
-            btnCadastrarEnd.Location = new Point(349, 259);
+            btnCadastrarEnd.Location = new Point(407, 254);
             btnCadastrarEnd.Name = "btnCadastrarEnd";
             btnCadastrarEnd.Size = new Size(191, 23);
             btnCadastrarEnd.TabIndex = 38;
@@ -326,7 +329,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(153, 259);
+            btnSalvar.Location = new Point(211, 254);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(115, 23);
             btnSalvar.TabIndex = 37;
@@ -337,7 +340,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(478, 181);
+            label6.Location = new Point(536, 176);
             label6.Name = "label6";
             label6.Size = new Size(114, 15);
             label6.TabIndex = 45;
@@ -346,7 +349,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(274, 181);
+            label5.Location = new Point(332, 176);
             label5.Name = "label5";
             label5.Size = new Size(51, 15);
             label5.TabIndex = 44;
@@ -355,7 +358,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 181);
+            label4.Location = new Point(82, 176);
             label4.Name = "label4";
             label4.Size = new Size(36, 15);
             label4.TabIndex = 43;
@@ -364,7 +367,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(412, 108);
+            label3.Location = new Point(470, 103);
             label3.Name = "label3";
             label3.Size = new Size(28, 15);
             label3.TabIndex = 42;
@@ -373,7 +376,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 108);
+            label2.Location = new Point(82, 103);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 41;
@@ -382,7 +385,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(24, 51);
+            label8.Location = new Point(82, 46);
             label8.Name = "label8";
             label8.Size = new Size(18, 15);
             label8.TabIndex = 40;
@@ -391,7 +394,7 @@
             // dtpDataNasc
             // 
             dtpDataNasc.Format = DateTimePickerFormat.Short;
-            dtpDataNasc.Location = new Point(478, 199);
+            dtpDataNasc.Location = new Point(536, 194);
             dtpDataNasc.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             dtpDataNasc.Name = "dtpDataNasc";
             dtpDataNasc.Size = new Size(135, 23);
@@ -399,35 +402,35 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(24, 199);
+            txtEmail.Location = new Point(82, 194);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(216, 23);
             txtEmail.TabIndex = 34;
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(274, 199);
+            txtTelefone.Location = new Point(332, 194);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(166, 23);
             txtTelefone.TabIndex = 35;
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(412, 126);
+            txtCpf.Location = new Point(470, 121);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(166, 23);
             txtCpf.TabIndex = 33;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(24, 126);
+            txtNome.Location = new Point(82, 121);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(349, 23);
             txtNome.TabIndex = 32;
             // 
             // txtId
             // 
-            txtId.Location = new Point(24, 69);
+            txtId.Location = new Point(82, 64);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(51, 23);
@@ -437,6 +440,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SteelBlue;
             ClientSize = new Size(776, 606);
             Controls.Add(groupBox1);
             Name = "FrmConsultaCliente";
