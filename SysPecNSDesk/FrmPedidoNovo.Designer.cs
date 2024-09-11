@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             grbIdentificacao = new GroupBox();
             btnInserePedido = new Button();
             txtIdCliente = new TextBox();
-            label4 = new Label();
             txtCliente = new TextBox();
             txtUsuario = new TextBox();
             label3 = new Label();
             grbItens = new GroupBox();
+            lblMaxDesconto = new Label();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             label10 = new Label();
             textBox1 = new TextBox();
             label9 = new Label();
@@ -69,6 +74,8 @@
             label12 = new Label();
             label13 = new Label();
             label14 = new Label();
+            label4 = new Label();
+            button1 = new Button();
             grbIdentificacao.SuspendLayout();
             grbItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvItensPedido).BeginInit();
@@ -76,6 +83,7 @@
             // 
             // grbIdentificacao
             // 
+            grbIdentificacao.Controls.Add(button1);
             grbIdentificacao.Controls.Add(btnInserePedido);
             grbIdentificacao.Controls.Add(txtIdCliente);
             grbIdentificacao.Controls.Add(label4);
@@ -91,7 +99,7 @@
             // 
             // btnInserePedido
             // 
-            btnInserePedido.Location = new Point(421, 34);
+            btnInserePedido.Location = new Point(460, 34);
             btnInserePedido.Name = "btnInserePedido";
             btnInserePedido.Size = new Size(75, 60);
             btnInserePedido.TabIndex = 1;
@@ -105,15 +113,6 @@
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.Size = new Size(61, 23);
             txtIdCliente.TabIndex = 0;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(30, 79);
-            label4.Name = "label4";
-            label4.Size = new Size(44, 15);
-            label4.TabIndex = 5;
-            label4.Text = "Cliente";
             // 
             // txtCliente
             // 
@@ -141,6 +140,9 @@
             // 
             // grbItens
             // 
+            grbItens.Controls.Add(lblMaxDesconto);
+            grbItens.Controls.Add(radioButton2);
+            grbItens.Controls.Add(radioButton1);
             grbItens.Controls.Add(label10);
             grbItens.Controls.Add(textBox1);
             grbItens.Controls.Add(label9);
@@ -162,6 +164,38 @@
             grbItens.TabIndex = 1;
             grbItens.TabStop = false;
             grbItens.Text = "Itens do Pedido";
+            // 
+            // lblMaxDesconto
+            // 
+            lblMaxDesconto.AutoSize = true;
+            lblMaxDesconto.ForeColor = Color.Red;
+            lblMaxDesconto.Location = new Point(373, 123);
+            lblMaxDesconto.Name = "lblMaxDesconto";
+            lblMaxDesconto.Size = new Size(31, 15);
+            lblMaxDesconto.TabIndex = 16;
+            lblMaxDesconto.Text = "R$ - ";
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(376, 47);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(81, 19);
+            radioButton2.TabIndex = 15;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Percentual";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(376, 72);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(47, 19);
+            radioButton1.TabIndex = 14;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Real";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -187,7 +221,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(373, 81);
+            label9.Location = new Point(376, 29);
             label9.Name = "label9";
             label9.Size = new Size(57, 15);
             label9.TabIndex = 11;
@@ -317,6 +351,9 @@
             // 
             // clnValorUnit
             // 
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            clnValorUnit.DefaultCellStyle = dataGridViewCellStyle7;
             clnValorUnit.Frozen = true;
             clnValorUnit.HeaderText = "Valor Unit.";
             clnValorUnit.Name = "clnValorUnit";
@@ -333,6 +370,9 @@
             // 
             // clnDescontoItem
             // 
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            clnDescontoItem.DefaultCellStyle = dataGridViewCellStyle8;
             clnDescontoItem.Frozen = true;
             clnDescontoItem.HeaderText = "Desconto";
             clnDescontoItem.Name = "clnDescontoItem";
@@ -341,6 +381,9 @@
             // 
             // clnTotalItem
             // 
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            clnTotalItem.DefaultCellStyle = dataGridViewCellStyle9;
             clnTotalItem.Frozen = true;
             clnTotalItem.HeaderText = "Total";
             clnTotalItem.Name = "clnTotalItem";
@@ -459,8 +502,30 @@
             label14.TabIndex = 9;
             label14.Text = "Total";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(30, 79);
+            label4.Name = "label4";
+            label4.Size = new Size(44, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Cliente";
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = Properties.Resources.Search2;
+            button1.Location = new Point(363, 60);
+            button1.Name = "button1";
+            button1.Size = new Size(41, 43);
+            button1.TabIndex = 6;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmPedidoNovo
             // 
+            AcceptButton = btnAddItem;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(766, 570);
@@ -503,7 +568,6 @@
         private Label label3;
         private TextBox txtUsuario;
         private TextBox txtCliente;
-        private Label label4;
         private Button btnInserePedido;
         private TextBox txtIdCliente;
         private Button btnAddItem;
@@ -529,6 +593,8 @@
         private Label label12;
         private Label label13;
         private Label label14;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
         private DataGridViewTextBoxColumn clnSeq;
         private DataGridViewTextBoxColumn clnCodBarras;
         private DataGridViewTextBoxColumn clnDescricao;
@@ -536,5 +602,8 @@
         private DataGridViewTextBoxColumn clnQuantidade;
         private DataGridViewTextBoxColumn clnDescontoItem;
         private DataGridViewTextBoxColumn clnTotalItem;
+        private Label lblMaxDesconto;
+        private Button button1;
+        private Label label4;
     }
 }

@@ -65,6 +65,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(257, 23);
             txtEmail.TabIndex = 2;
+            txtEmail.Text = "anacsfonseca@hotmail.com.br";
             // 
             // txtSenha
             // 
@@ -72,6 +73,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(257, 23);
             txtSenha.TabIndex = 3;
+            txtSenha.Text = "123456";
             txtSenha.UseSystemPasswordChar = true;
             // 
             // label1

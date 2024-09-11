@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SysPecNSDesk
         }
         private void FrmCliente_Load(object sender, EventArgs e)
         {
+            this.tabPageEnderecos.Enabled = false;
         }
 
         private void btnInserir_Click_1(object sender, EventArgs e)
@@ -56,6 +58,8 @@ namespace SysPecNSDesk
                 txtNome.Focus();
                 //Recarrega a tabela do formulário para exibir o novo usuário na lista
                 FrmCliente_Load(sender, e);
+                this.tabPageEnderecos.Enabled = true;
+
 
             }
             else
@@ -104,7 +108,7 @@ namespace SysPecNSDesk
                 //Exibe ID do cliente no formulário, enquanto a caixa de diálogo não for fechada.
 
                 MessageBox.Show($"O endereço foi inserido com sucesso, no cadastro do usuário {endereco.Cliente.Nome}");
-                
+
                 txtCep.Clear();
                 txtLogradouro.Clear();
                 txtNumero.Clear();
@@ -165,6 +169,9 @@ namespace SysPecNSDesk
             //frmCliente.txtId.Text.Clear();
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
