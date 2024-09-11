@@ -166,10 +166,10 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Antique Olive Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(355, 332);
+            label10.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(349, 332);
             label10.Name = "label10";
-            label10.Size = new Size(98, 24);
+            label10.Size = new Size(108, 24);
             label10.TabIndex = 13;
             label10.Text = "TOTAL R$";
             // 
@@ -350,10 +350,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Antique Olive Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(200, 19);
             label1.Name = "label1";
-            label1.Size = new Size(149, 26);
+            label1.Size = new Size(146, 25);
             label1.TabIndex = 2;
             label1.Text = "Novo Pedido";
             // 
@@ -370,10 +370,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Antique Olive Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(596, 19);
             label2.Name = "label2";
-            label2.Size = new Size(32, 24);
+            label2.Size = new Size(33, 24);
             label2.TabIndex = 4;
             label2.Text = "Nº";
             // 

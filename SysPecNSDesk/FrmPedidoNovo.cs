@@ -63,11 +63,11 @@ namespace SysPecNSDesk
                 dgvItensPedido.Rows[cont].Cells[3].Value = item.ValorUnit;
                 dgvItensPedido.Rows[cont].Cells[4].Value = item.Quantidade;
                 dgvItensPedido.Rows[cont].Cells[5].Value = item.Desconto;
-                dgvItensPedido.Rows[cont].Cells[6].Value = (produto.ValorUnit * item.Quantidade) - item.Desconto;
+                dgvItensPedido.Rows[cont].Cells[6].Value = (item.ValorUnit * item.Quantidade) - item.Desconto;
 
                 //Soma +1 ao contador de cliente
                 cont++;
-                total += produto.ValorUnit * item.Quantidade) - item.Desconto;
+                total += (item.ValorUnit * item.Quantidade) - item.Desconto;
 
 
             }
@@ -112,7 +112,6 @@ namespace SysPecNSDesk
 
 
             //cria uma instância vazia para limpar as informações, pois o produto já terá sido adicionado no pedido
-            produto = new();
 
             //Limpa os campos
             txtQuantidade.Text = "1";
@@ -122,6 +121,7 @@ namespace SysPecNSDesk
             txtValorUnit.Clear();
 
             txtCodBarras.Focus();
+            produto = new();
         }
     }
 }

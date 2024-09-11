@@ -50,7 +50,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spdesconto", Desconto);//desconto do item
             
             cmd.ExecuteNonQuery();
-            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            // Id = Convert.ToInt32(cmd.ExecuteScalar());
 
         }
 
