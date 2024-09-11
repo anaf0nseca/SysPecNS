@@ -73,7 +73,35 @@ namespace SysPecNSDesk
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            this.tabPageEditar.Enabled = true;
 
+            int id = 0;
+            //Identifica a linha atual(que foi clicada)
+            int posicaoLinha = dgvClientes.CurrentRow.Index;
+
+            //Atribui o valor da celula 0 da linha atual(id)
+            id = Convert.ToInt32(dgvClientes.Rows[posicaoLinha].Cells[0].Value);
+
+
+            //MessageBox.Show(id.ToString());
+
+            //Mudar aba ao clicar 2x no cliente desejado 
+            this.tabConsultaCliente.SelectedTab = tabPageEditar;
+
+
+            //Identifica o cliente pelo ID da linha selecionada no DGV
+            Cliente cliente1 = Cliente.ObterPorId(id);
+
+            //Preenche os campos com as informações do cliente após obtê-los através do ID
+            txtId.Text = cliente1.Id.ToString();
+            txtCpf.Text = cliente1.Cpf;
+            txtNome.Text = cliente1.Nome;
+            txtTelefone.Text = cliente1.Telefone;
+            txtEmail.Text = cliente1.Email;
+
+            //Não permite alteração dos campos de CPF e Email que são chaves UNICAS
+            txtCpf.ReadOnly = true;
+            txtEmail.ReadOnly = true;
 
             Close();
 
@@ -145,37 +173,7 @@ namespace SysPecNSDesk
 
         }
 
-        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.tabPageEditar.Enabled = true;
 
-            int id = 0;
-            //Identifica a linha atual(que foi clicada)
-            int posicaoLinha = dgvClientes.CurrentRow.Index;
-
-            //Atribui o valor da celula 0 da linha atual(id)
-            id = Convert.ToInt32(dgvClientes.Rows[posicaoLinha].Cells[0].Value);
-
-
-            //MessageBox.Show(id.ToString());
-
-            //Mudar aba ao clicar 2x no cliente desejado 
-            this.tabConsultaCliente.SelectedTab = tabPageEditar;
-
-
-            //Identifica o cliente pelo ID da linha selecionada no DGV
-            Cliente cliente1 = Cliente.ObterPorId(id);
-
-            //Preenche os campos com as informações do cliente após obtê-los através do ID
-            txtId.Text = cliente1.Id.ToString();
-            txtCpf.Text = cliente1.Cpf;
-            txtNome.Text = cliente1.Nome;
-            txtTelefone.Text = cliente1.Telefone;
-            txtEmail.Text = cliente1.Email;
-
-            //Não permite alteração dos campos de CPF e Email que são chaves UNICAS
-            txtCpf.ReadOnly = true;
-            txtEmail.ReadOnly = true;
-        }
+      
     }
 }

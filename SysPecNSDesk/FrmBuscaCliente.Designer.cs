@@ -58,6 +58,7 @@
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(707, 23);
             txtBusca.TabIndex = 46;
+            txtBusca.TextChanged += txtBusca_TextChanged;
             // 
             // dgvClientes
             // 
@@ -84,7 +85,7 @@
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(707, 286);
             dgvClientes.TabIndex = 45;
-            dgvClientes.CellDoubleClick += this.dgvClientes_CellDoubleClick;
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
             // 
             // clnId
             // 

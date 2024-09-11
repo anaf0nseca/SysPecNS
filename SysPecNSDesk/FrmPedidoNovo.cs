@@ -13,8 +13,8 @@ namespace SysPecNSDesk
 {
     public partial class FrmPedidoNovo : Form
     {
-        public int ClienteId { get; set; }
-        public string NomeCliente { get; set; }
+        //public int ClienteId { get; set; }
+        //public string NomeCliente { get; set; }
 
 
         //inicializa o objeto
@@ -148,14 +148,20 @@ namespace SysPecNSDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Cria uma nova instância do Formulário de Busca
             FrmBuscaCliente frmBuscaCliente = new FrmBuscaCliente();
+            //Exibe o formulário
             frmBuscaCliente.ShowDialog();
 
-            ClienteId = frmBuscaCliente.ClienteId;
-            NomeCliente = frmBuscaCliente.NomeCliente;
+            //Associa o valor da propriedade da tabela de busca a variavel ClienteId
+            int clienteId = frmBuscaCliente.ClienteId;
 
-            txtIdCliente.Text = ClienteId.ToString();
-            txtCliente.Text = NomeCliente;
+            //Associa o valor da propriedade da tabela de busca a variavel NomeCliente
+            string nomeCliente = frmBuscaCliente.NomeCliente;
+
+            //Preenche os campos com as respectivas informações do cliente
+            txtIdCliente.Text = clienteId.ToString();
+            txtCliente.Text = nomeCliente;
         }
     }
 }

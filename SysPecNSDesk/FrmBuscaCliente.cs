@@ -88,9 +88,8 @@ namespace SysPecNSDesk
             //Associa o Nome do cliente encontrado a propriedade NomeCliente
             NomeCliente = cliente.Nome;
 
-
-
             Close();
+
         }
     }
 }

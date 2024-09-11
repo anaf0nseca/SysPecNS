@@ -314,7 +314,7 @@
             // cmbTipoEndereco
             // 
             cmbTipoEndereco.FormattingEnabled = true;
-            cmbTipoEndereco.Items.AddRange(new object[] { "RES - Residencial", "COM - Comercial" });
+            cmbTipoEndereco.Items.AddRange(new object[] { "COS - Correspondência", "RES - Residencial", "COM - Comercial", "ENT - Entrega", "COB - Cobrança" });
             cmbTipoEndereco.Location = new Point(334, 206);
             cmbTipoEndereco.Name = "cmbTipoEndereco";
             cmbTipoEndereco.Size = new Size(121, 23);
