@@ -103,7 +103,6 @@ namespace SysPecNSDesk
             txtCpf.ReadOnly = true;
             txtEmail.ReadOnly = true;
 
-            Close();
 
         }
 
