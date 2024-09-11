@@ -134,46 +134,59 @@
             // 
             // btnCadastrarEnd
             // 
+            btnCadastrarEnd.BackColor = Color.FromArgb(35, 84, 150);
             btnCadastrarEnd.Enabled = false;
+            btnCadastrarEnd.FlatAppearance.BorderSize = 0;
+            btnCadastrarEnd.FlatStyle = FlatStyle.Flat;
+            btnCadastrarEnd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnCadastrarEnd.ForeColor = Color.White;
             btnCadastrarEnd.Location = new Point(361, 230);
             btnCadastrarEnd.Name = "btnCadastrarEnd";
             btnCadastrarEnd.Size = new Size(145, 23);
             btnCadastrarEnd.TabIndex = 7;
             btnCadastrarEnd.Text = "Cadastrar endereço";
-            btnCadastrarEnd.UseVisualStyleBackColor = true;
+            btnCadastrarEnd.UseVisualStyleBackColor = false;
             btnCadastrarEnd.Click += btnCadastrarEnd_Click;
             // 
             // btnInserir
             // 
+            btnInserir.BackColor = Color.FromArgb(35, 84, 150);
+            btnInserir.FlatAppearance.BorderSize = 0;
+            btnInserir.FlatStyle = FlatStyle.Flat;
+            btnInserir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnInserir.ForeColor = Color.White;
             btnInserir.Location = new Point(210, 228);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(115, 23);
             btnInserir.TabIndex = 6;
             btnInserir.Text = "&Inserir";
-            btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.UseVisualStyleBackColor = false;
             btnInserir.Click += btnInserir_Click_1;
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(37, 210);
             label6.Name = "label6";
-            label6.Size = new Size(114, 15);
+            label6.Size = new Size(115, 15);
             label6.TabIndex = 31;
             label6.Text = "Data de Nascimento";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(297, 151);
             label5.Name = "label5";
-            label5.Size = new Size(51, 15);
+            label5.Size = new Size(52, 15);
             label5.TabIndex = 30;
             label5.Text = "Telefone";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(37, 151);
             label4.Name = "label4";
             label4.Size = new Size(36, 15);
@@ -183,27 +196,30 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(340, 94);
             label3.Name = "label3";
-            label3.Size = new Size(28, 15);
+            label3.Size = new Size(27, 15);
             label3.TabIndex = 28;
             label3.Text = "CPF";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(37, 94);
             label2.Name = "label2";
-            label2.Size = new Size(96, 15);
+            label2.Size = new Size(95, 15);
             label2.TabIndex = 27;
             label2.Text = "Nome Completo";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(37, 43);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(20, 15);
             label1.TabIndex = 26;
             label1.Text = "ID";
             // 
@@ -283,32 +299,44 @@
             // 
             // btnFechar
             // 
+            btnFechar.BackColor = Color.FromArgb(35, 84, 150);
+            btnFechar.FlatStyle = FlatStyle.Flat;
+            btnFechar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnFechar.ForeColor = Color.White;
             btnFechar.Location = new Point(428, 260);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(75, 23);
             btnFechar.TabIndex = 40;
             btnFechar.Text = "&Fechar";
-            btnFechar.UseVisualStyleBackColor = true;
+            btnFechar.UseVisualStyleBackColor = false;
             btnFechar.Click += btnFechar_Click_1;
             // 
             // btnAdicionarEndereco
             // 
+            btnAdicionarEndereco.BackColor = Color.FromArgb(35, 84, 150);
+            btnAdicionarEndereco.FlatStyle = FlatStyle.Flat;
+            btnAdicionarEndereco.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnAdicionarEndereco.ForeColor = Color.White;
             btnAdicionarEndereco.Location = new Point(194, 260);
             btnAdicionarEndereco.Name = "btnAdicionarEndereco";
             btnAdicionarEndereco.Size = new Size(163, 23);
             btnAdicionarEndereco.TabIndex = 39;
             btnAdicionarEndereco.Text = "&Adicionar outro endereço";
-            btnAdicionarEndereco.UseVisualStyleBackColor = true;
+            btnAdicionarEndereco.UseVisualStyleBackColor = false;
             btnAdicionarEndereco.Click += btnAdicionarEndereco_Click_1;
             // 
             // btnSalvarEndereco
             // 
+            btnSalvarEndereco.BackColor = Color.FromArgb(35, 84, 150);
+            btnSalvarEndereco.FlatStyle = FlatStyle.Flat;
+            btnSalvarEndereco.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnSalvarEndereco.ForeColor = Color.White;
             btnSalvarEndereco.Location = new Point(16, 260);
             btnSalvarEndereco.Name = "btnSalvarEndereco";
             btnSalvarEndereco.Size = new Size(102, 23);
             btnSalvarEndereco.TabIndex = 38;
             btnSalvarEndereco.Text = "&Salvar endereço";
-            btnSalvarEndereco.UseVisualStyleBackColor = true;
+            btnSalvarEndereco.UseVisualStyleBackColor = false;
             btnSalvarEndereco.Click += btnSalvarEndereco_Click_1;
             // 
             // cmbTipoEndereco
@@ -324,15 +352,17 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.ForeColor = Color.Black;
             label14.Location = new Point(334, 188);
             label14.Name = "label14";
-            label14.Size = new Size(98, 15);
+            label14.Size = new Size(99, 15);
             label14.TabIndex = 36;
             label14.Text = "Tipo de Endereço";
             // 
             // label15
             // 
             label15.AutoSize = true;
+            label15.ForeColor = Color.Black;
             label15.Location = new Point(243, 188);
             label15.Name = "label15";
             label15.Size = new Size(21, 15);
@@ -349,15 +379,17 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.ForeColor = Color.Black;
             label12.Location = new Point(16, 188);
             label12.Name = "label12";
-            label12.Size = new Size(44, 15);
+            label12.Size = new Size(43, 15);
             label12.TabIndex = 32;
             label12.Text = "Cidade";
             // 
             // label13
             // 
             label13.AutoSize = true;
+            label13.ForeColor = Color.Black;
             label13.Location = new Point(243, 132);
             label13.Name = "label13";
             label13.Size = new Size(38, 15);
@@ -381,15 +413,17 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.ForeColor = Color.Black;
             label9.Location = new Point(16, 132);
             label9.Name = "label9";
-            label9.Size = new Size(84, 15);
+            label9.Size = new Size(83, 15);
             label9.TabIndex = 28;
             label9.Text = "Complemento";
             // 
             // label10
             // 
             label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
             label10.Location = new Point(442, 77);
             label10.Name = "label10";
             label10.Size = new Size(21, 15);
@@ -399,6 +433,7 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.ForeColor = Color.Black;
             label11.Location = new Point(16, 77);
             label11.Name = "label11";
             label11.Size = new Size(69, 15);
@@ -429,9 +464,10 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(16, 19);
             label8.Name = "label8";
-            label8.Size = new Size(28, 15);
+            label8.Size = new Size(27, 15);
             label8.TabIndex = 22;
             label8.Text = "CEP";
             // 
@@ -446,9 +482,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(35, 84, 150);
             ClientSize = new Size(566, 351);
             ControlBox = false;
             Controls.Add(groupBox1);
+            Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmCliente";
             StartPosition = FormStartPosition.CenterScreen;

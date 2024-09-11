@@ -67,9 +67,9 @@ namespace SysPecNSDesk
                 dgvItensPedido.Rows[cont].Cells[1].Value = item.Produto.CodBarras;
                 dgvItensPedido.Rows[cont].Cells[2].Value = item.Produto.Descricao;
                 dgvItensPedido.Rows[cont].Cells[3].Value = item.ValorUnit.ToString("#0.00");
-                dgvItensPedido.Rows[cont].Cells[4].Value = item.Quantidade.ToString("#0,000");
+                dgvItensPedido.Rows[cont].Cells[4].Value = item.Quantidade.ToString("#0.000");
                 dgvItensPedido.Rows[cont].Cells[5].Value = item.Desconto.ToString("#0.00");
-                dgvItensPedido.Rows[cont].Cells[6].Value = (item.ValorUnit * item.Quantidade) - item.Desconto;
+                dgvItensPedido.Rows[cont].Cells[6].Value = (item.ValorUnit * item.Quantidade - item.Desconto).ToString("#0.00");
 
                 //Soma +1 ao contador de cliente
                 cont++;
@@ -80,6 +80,9 @@ namespace SysPecNSDesk
 
             textBox1.Text = total.ToString("#0.00");
             txtDescontoItens.Text = desconto.ToString("#0.00");
+            txtSubtotal.Text = (total + desconto).ToString("#0.00");
+            txtTotal.Text = total.ToString("#0.00");
+       
         }
 
         private void txtCodBarras_Leave(object sender, EventArgs e)
@@ -93,6 +96,8 @@ namespace SysPecNSDesk
                 //Caso o código de barras exista, preenche os campos do formulário com seus respectivos valores
                 txtDescricao.Text = produto.Descricao;
                 txtValorUnit.Text = produto.ValorUnit.ToString();
+
+                lblMaxDesconto.Visible = true;
                 //Se a classe de desconto do produto for igual a zero, a caixa de texto para inserir um desconto no item é desabilitado
                 if (produto.ClasseDesconto == 0)
                 {
@@ -101,7 +106,7 @@ namespace SysPecNSDesk
                 else
                 {
                     txtDescontoItem.Enabled = true;
-                    lblMaxDesconto.Text += $" {produto.ValorUnit * produto.ClasseDesconto}";
+                    lblMaxDesconto.Text = $"{produto.ValorUnit * produto.ClasseDesconto}";
                 }
                 //Após o campo do valor unitário ser preenchido pelo sistema, o valor não pode ser alterado pelo usuário
                 txtValorUnit.ReadOnly = true;

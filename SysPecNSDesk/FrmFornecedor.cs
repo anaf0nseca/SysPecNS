@@ -50,7 +50,7 @@ namespace SysPecNSDesk
             }
         }
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             Fornecedor fornecedor = new(
                 txtRazaoSocial.Text,
@@ -72,7 +72,7 @@ namespace SysPecNSDesk
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click_1(object sender, EventArgs e)
         {
             Fornecedor fornecedor = new(
                 int.Parse(txtId.Text),
@@ -107,7 +107,7 @@ namespace SysPecNSDesk
             txtEmail.Clear();
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void btnConsultar_Click_1(object sender, EventArgs e)
         {
             if (btnConsultar.Text == "&Consultar")
             {
@@ -132,6 +132,11 @@ namespace SysPecNSDesk
 
                 }
             }
+        }
+
+        private void dgvFornecedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

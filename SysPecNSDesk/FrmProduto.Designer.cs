@@ -66,7 +66,7 @@
             // 
             // gpProdutos
             // 
-            gpProdutos.BackColor = Color.FromArgb(29, 96, 150);
+            gpProdutos.BackColor = Color.White;
             gpProdutos.Controls.Add(npEstoqueMinimo);
             gpProdutos.Controls.Add(label8);
             gpProdutos.Controls.Add(label7);
@@ -87,7 +87,7 @@
             gpProdutos.Controls.Add(txtCodBarras);
             gpProdutos.Controls.Add(txtId);
             gpProdutos.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            gpProdutos.ForeColor = Color.White;
+            gpProdutos.ForeColor = Color.Black;
             gpProdutos.Location = new Point(12, 12);
             gpProdutos.Name = "gpProdutos";
             gpProdutos.Size = new Size(651, 316);

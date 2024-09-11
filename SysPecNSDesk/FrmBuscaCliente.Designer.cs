@@ -156,6 +156,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmBuscaCliente";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
