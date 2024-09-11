@@ -39,7 +39,6 @@
             clnTelefone = new DataGridViewTextBoxColumn();
             clnEmail = new DataGridViewTextBoxColumn();
             clnDataNasc = new DataGridViewTextBoxColumn();
-            clnAtivo = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +68,7 @@
             dgvClientes.BackgroundColor = Color.SteelBlue;
             dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc, clnAtivo });
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCpf, clnTelefone, clnEmail, clnDataNasc });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -101,7 +100,7 @@
             clnNome.HeaderText = "Nome";
             clnNome.Name = "clnNome";
             clnNome.ReadOnly = true;
-            clnNome.Width = 180;
+            clnNome.Width = 200;
             // 
             // clnCpf
             // 
@@ -109,7 +108,7 @@
             clnCpf.HeaderText = "CPF";
             clnCpf.Name = "clnCpf";
             clnCpf.ReadOnly = true;
-            clnCpf.Width = 110;
+            clnCpf.Width = 120;
             // 
             // clnTelefone
             // 
@@ -124,7 +123,7 @@
             clnEmail.HeaderText = "Email";
             clnEmail.Name = "clnEmail";
             clnEmail.ReadOnly = true;
-            clnEmail.Width = 140;
+            clnEmail.Width = 160;
             // 
             // clnDataNasc
             // 
@@ -136,14 +135,6 @@
             clnDataNasc.Name = "clnDataNasc";
             clnDataNasc.ReadOnly = true;
             clnDataNasc.Width = 90;
-            // 
-            // clnAtivo
-            // 
-            clnAtivo.Frozen = true;
-            clnAtivo.HeaderText = "Ativo";
-            clnAtivo.Name = "clnAtivo";
-            clnAtivo.ReadOnly = true;
-            clnAtivo.Width = 45;
             // 
             // FrmBuscaCliente
             // 
@@ -174,6 +165,5 @@
         private DataGridViewTextBoxColumn clnTelefone;
         private DataGridViewTextBoxColumn clnEmail;
         private DataGridViewTextBoxColumn clnDataNasc;
-        private DataGridViewCheckBoxColumn clnAtivo;
     }
 }

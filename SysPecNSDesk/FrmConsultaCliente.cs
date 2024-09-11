@@ -111,6 +111,7 @@ namespace SysPecNSDesk
         {
             //Armazena o número do ID do cliente contido na linha selecionada do GRID, na variavel cliente ID   
             int clienteId = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
+            //Exibe os endereços associados a esse cliente
             CarregaGridEndereco(clienteId);
         }
         private void CarregaGridEndereco(int clienteId)
@@ -172,7 +173,10 @@ namespace SysPecNSDesk
 
         }
 
-
-      
+        private void btnCadastrarEnd_Click(object sender, EventArgs e)
+        {
+            FrmCliente frmCliente = new FrmCliente();
+            frmCliente.Show();
+        }
     }
 }

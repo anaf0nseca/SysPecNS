@@ -326,6 +326,7 @@
             btnCadastrarEnd.TabIndex = 38;
             btnCadastrarEnd.Text = "&Cadastrar outro endereço";
             btnCadastrarEnd.UseVisualStyleBackColor = true;
+            btnCadastrarEnd.Click += btnCadastrarEnd_Click;
             // 
             // btnSalvar
             // 
