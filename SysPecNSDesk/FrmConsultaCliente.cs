@@ -192,9 +192,6 @@ namespace SysPecNSDesk
                 txtCidade.Text,
                 txtUf.Text,
                 cmbTipoEndereco.Text
-
-
-
                );
 
             endereco.Inserir();

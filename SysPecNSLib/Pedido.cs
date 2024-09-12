@@ -92,11 +92,11 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
-        public void AlterarStatus(int Id, char Status)
+        public void AlterarStatus(int Id, string Status)
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"update pedidos set status = {Status} where id = {Id}";
+            cmd.CommandText = $"update pedidos set status = '{Status}' where id = {Id}";
         
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
@@ -106,7 +106,7 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"update pedidos set desconto = {Desconto} where id = {Id}";
+            cmd.CommandText = $"update pedidos set desconto = '{Desconto}' where id = {Id}";
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }

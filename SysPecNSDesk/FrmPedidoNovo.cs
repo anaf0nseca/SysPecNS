@@ -183,21 +183,7 @@ namespace SysPecNSDesk
             txtCliente.Text = nomeCliente;
         }
 
-        private void btnFecharPedido_Click(object sender, EventArgs e)
-        {
-            char status = 'F';
-            double desconto = double.Parse(txtTotal.Text);
-            Pedido pedido = new(
-                //Convert.ToInt32(txtIdPedido.Text),
-                //(char)status,
-                //desconto
-               );
-
-            pedido.AlterarStatus(Convert.ToInt32(txtIdPedido.Text), status);
-            pedido.AtualizarDesconto(Convert.ToInt32(txtIdPedido.Text), desconto);
-
-            Close();
-        }
+       
 
         private void txtDescontoPedido_TextChanged(object sender, EventArgs e)
         {
@@ -212,6 +198,25 @@ namespace SysPecNSDesk
             {
                 txtDescontoPedido.Text = "0,00";
             }
+        }
+
+        private void btnFecharPedido_Click(object sender, EventArgs e)
+        {
+            string status = "F";
+            string desconto = txtTotal.Text;
+            desconto = desconto.Replace(',', '.');
+          
+            Pedido pedido = new(
+                Convert.ToInt32(txtIdPedido.Text),
+                Convert.ToString(status),
+                double.Parse(txtTotal.Text)
+
+               );
+
+            pedido.AlterarStatus(Convert.ToInt32(txtIdPedido.Text), status);
+            pedido.AtualizarDesconto(Convert.ToInt32(txtIdPedido.Text), double.Parse(desconto));
+
+            Close();
         }
     }
 }
