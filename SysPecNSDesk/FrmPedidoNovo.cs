@@ -125,8 +125,17 @@ namespace SysPecNSDesk
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+            //Converte o valor inserido no campo de desconto do item para double
+            double descontoItem = Convert.ToDouble(txtDescontoItem.Text);
+            //compara o valor de desconto do item com o valor máximo permitido
+            if (descontoItem > (produto.ValorUnit * produto.ClasseDesconto))
+            {
+                MessageBox.Show("Não é possível aplicar esse valor de desconto!");
+            }
+            else
+            {
 
-            ItemPedido item = new(
+                ItemPedido item = new(
                 int.Parse(txtIdPedido.Text),
                 produto,
                 produto.ValorUnit,
@@ -134,23 +143,25 @@ namespace SysPecNSDesk
                 double.Parse(txtDescontoItem.Text)
                 );
 
-            item.Inserir();
-            PreencheGridItens();
+                item.Inserir();
+                PreencheGridItens();
 
 
-            //cria uma instância vazia para limpar as informações, pois o produto já terá sido adicionado no pedido
+                //cria uma instância vazia para limpar as informações, pois o produto já terá sido adicionado no pedido
 
-            //Limpa os campos
-            txtQuantidade.Text = "1";
-            txtDescontoItem.Text = "0";
-            txtDescontoPedido.Text = "0";
-            txtCodBarras.Clear();
-            txtDescricao.Clear();
-            txtValorUnit.Clear();
+                //Limpa os campos
+                txtQuantidade.Text = "1";
+                txtDescontoItem.Text = "0";
+                txtDescontoPedido.Text = "0";
+                txtCodBarras.Clear();
+                txtDescricao.Clear();
+                txtValorUnit.Clear();
 
-            txtCodBarras.Focus();
+                txtCodBarras.Focus();
 
-            produto = new();
+                produto = new();
+            }
+
         }
 
 
@@ -174,11 +185,33 @@ namespace SysPecNSDesk
 
         private void btnFecharPedido_Click(object sender, EventArgs e)
         {
+            char status = 'F';
+            double desconto = double.Parse(txtTotal.Text);
             Pedido pedido = new(
-                
-                );
+                //Convert.ToInt32(txtIdPedido.Text),
+                //(char)status,
+                //desconto
+               );
+
+            pedido.AlterarStatus(Convert.ToInt32(txtIdPedido.Text), status);
+            pedido.AtualizarDesconto(Convert.ToInt32(txtIdPedido.Text), desconto);
 
             Close();
+        }
+
+        private void txtDescontoPedido_TextChanged(object sender, EventArgs e)
+        {
+            //Se for inserido um desconto no total do pedido, a caixa de testo 
+            if (txtDescontoPedido.Text != string.Empty)
+            {
+
+                double total = double.Parse(txtSubtotal.Text) - double.Parse(txtDescontoPedido.Text) - double.Parse(txtDescontoItens.Text);
+                txtTotal.Text = total.ToString("#0.00");
+            }
+            else
+            {
+                txtDescontoPedido.Text = "0,00";
+            }
         }
     }
 }

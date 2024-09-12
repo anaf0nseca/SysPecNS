@@ -173,7 +173,7 @@ namespace SysPecNSDesk
 
         }
 
-        private void btnCadastrarEnd_Click(object sender, EventArgs e)
+        private void btnCadastrarEnd_Click_1(object sender, EventArgs e)
         {
             gpbEndereco.Enabled = true;
 
@@ -214,5 +214,7 @@ namespace SysPecNSDesk
 
             }
         }
+
+
     }
 }

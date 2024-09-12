@@ -60,7 +60,12 @@ namespace SysPecNSLib
             Desconto = desconto;
         }
 
-
+        public Pedido(int id, string status, double desconto)
+        {
+            Id = id;
+            Status = status;
+            Desconto = desconto;
+        }
         //Todas as propriedades
         public Pedido(int id, Usuario usuario, Cliente cliente, DateTime data, string status, double desconto, List<ItemPedido> itens)
         {
@@ -87,7 +92,7 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
-        public void AlterarStatus()
+        public void AlterarStatus(int Id, char Status)
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -97,7 +102,7 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
-        public void AtualizarDesconto()
+        public void AtualizarDesconto(int Id, double Desconto)
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -139,27 +144,14 @@ namespace SysPecNSLib
         /// Método para obter lista de todos os pedidos existentes no sistema
         /// </summary>
         /// <returns> Lista de todos os pedidos, se existir. </returns>
-        public static List<Pedido> ObterLista()
+        public static List<Pedido> ObterLista(int id = 0)
         {
             //Exemplo: ObterLista(0,8); todos os pedidos vendidos pelo usuário 8
             //pedidos é um objeto do tipo LISTA de PEDIDOS
             List<Pedido> pedidos = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            //if (idCliente > 0 && idUsuario > 0)
-            //{
-            //    cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente} and usuario_id = {idUsuario}";
-
-            //}else if (idCliente > 0) 
-            //{
-            //    cmd.CommandText = $"select * from pedidos where cliente_id = {idCliente}";
-
-            //}else if (idUsuario > 0) 
-            //{ 
-            //    cmd.CommandText = $"select * from pedidos where usuario_id = {idUsuario}";
-
-            //}else
-            //{   
+    
             cmd.CommandText = "select * from pedidos order by data";
             
 
