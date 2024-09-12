@@ -484,11 +484,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 84, 150);
             ClientSize = new Size(566, 351);
-            ControlBox = false;
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Cliente";
