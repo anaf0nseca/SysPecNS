@@ -46,6 +46,7 @@ namespace SysPecNSLib
 
             //Retorna o valor da primeira coluna da primeira linha
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
 
         }
 
@@ -65,6 +66,7 @@ namespace SysPecNSLib
                 null
                 );
             }
+            cmd.Connection.Close();
 
             return categoria;
         }
@@ -84,6 +86,8 @@ namespace SysPecNSLib
                 null
                 ));
             }
+            cmd.Connection.Close();
+
             return lista;
         }
 
@@ -97,6 +101,8 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spsigla", Sigla);
 
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
         }
 
         public void Excluir()
@@ -105,6 +111,8 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"delete from categorias where id = {Id}";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
 
         }
     }

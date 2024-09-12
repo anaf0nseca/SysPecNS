@@ -70,6 +70,8 @@ namespace SysPecNSLib
                 Id = dr.GetInt32(0);
             }
 
+            cmd.Connection.Close();
+
         }
         /// <summary>
         /// Obter por Id é um método estático que retorna
@@ -95,7 +97,9 @@ namespace SysPecNSLib
                     dr.GetBoolean(5)
                     );      
             }
+            cmd.Connection.Close();
             return usuario;
+
         }
         public static List<Usuario> ObterLista(string? nome="") 
         {
@@ -126,6 +130,8 @@ namespace SysPecNSLib
                         )
                     );
             }
+            comandosSQL.Connection.Close();
+
             return lista;
         }
         public static Usuario EfetuarLogin(string email, string senha)
@@ -146,6 +152,8 @@ namespace SysPecNSLib
                    dr.GetBoolean(5)
                    );
             }
+            cmd.Connection.Close();
+
             return usuario;
         }
         public void Atualizar() 
@@ -190,6 +198,9 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"delete from usuarios where id = {Id}";
             cmd.ExecuteNonQuery();
+
+            cmd.Connection.Close ();
+
 
         }
 

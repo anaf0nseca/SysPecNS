@@ -51,6 +51,7 @@ namespace SysPecNSLib
             
             cmd.ExecuteNonQuery();
             // Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
 
         }
 
@@ -72,7 +73,9 @@ namespace SysPecNSLib
                     dr.GetDouble(5)
                     ));
             }
-                return itens;
+
+            cmd.Connection.Close();
+            return itens;
         }
 
 
@@ -86,7 +89,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spdesconto", Desconto);
 
             cmd.ExecuteNonQuery();
-
+            cmd.Connection.Close();
         }
 
     }

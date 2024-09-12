@@ -82,11 +82,13 @@ namespace SysPecNSDesk
             txtDescontoItens.Text = desconto.ToString("#0.00");
             txtSubtotal.Text = (total + desconto).ToString("#0.00");
             txtTotal.Text = total.ToString("#0.00");
-       
+            //txtDescontoPedido.Text = ;
+
         }
 
         private void txtCodBarras_Leave(object sender, EventArgs e)
         {
+
             //Se houver um texto digitado no campo do Código de Barras
             if (txtCodBarras.TextLength > 0)
             {
@@ -105,8 +107,11 @@ namespace SysPecNSDesk
                 }
                 else
                 {
+
                     txtDescontoItem.Enabled = true;
-                    lblMaxDesconto.Text = $"{produto.ValorUnit * produto.ClasseDesconto}";
+                    lblMaxDesconto.Text = "R$ " + (produto.ValorUnit * produto.ClasseDesconto).ToString("#0.00");
+
+
                 }
                 //Após o campo do valor unitário ser preenchido pelo sistema, o valor não pode ser alterado pelo usuário
                 txtValorUnit.ReadOnly = true;
@@ -138,11 +143,13 @@ namespace SysPecNSDesk
             //Limpa os campos
             txtQuantidade.Text = "1";
             txtDescontoItem.Text = "0";
+            txtDescontoPedido.Text = "0";
             txtCodBarras.Clear();
             txtDescricao.Clear();
             txtValorUnit.Clear();
 
             txtCodBarras.Focus();
+
             produto = new();
         }
 
@@ -163,6 +170,15 @@ namespace SysPecNSDesk
             //Preenche os campos com as respectivas informações do cliente
             txtIdCliente.Text = clienteId.ToString();
             txtCliente.Text = nomeCliente;
+        }
+
+        private void btnFecharPedido_Click(object sender, EventArgs e)
+        {
+            Pedido pedido = new(
+                
+                );
+
+            Close();
         }
     }
 }

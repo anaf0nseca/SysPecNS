@@ -60,7 +60,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spemail", Email);
 
             Id = Convert.ToInt32(cmd.ExecuteScalar());
-
+            cmd.Connection.Close();
 
         }
 
@@ -78,6 +78,7 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spemail", Email);
 
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
         public static Fornecedor ObterPorId(int id)
@@ -100,6 +101,7 @@ namespace SysPecNSLib
                     );
 
             }
+            cmd.Connection.Close();
 
             return fornecedor;
         }
@@ -123,6 +125,7 @@ namespace SysPecNSLib
                     dr.GetString(6)
                     ));
             }
+            cmd.Connection.Close();
             return fornecedores;
         }
 
@@ -133,6 +136,7 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"delete from fornecedores where id = {Id}";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
 
         }
 

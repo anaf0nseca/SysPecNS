@@ -99,6 +99,8 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spclasse_desconto",ClasseDesconto);
             //select last_insert_id();
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+
         }
 
         public void Atualizar()
@@ -116,6 +118,8 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spclasse_desconto", ClasseDesconto);
 
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
 
         }
 
@@ -145,6 +149,8 @@ namespace SysPecNSLib
                 
                 );
             }
+            cmd.Connection.Close();
+
             return produto;
         }
 
@@ -175,7 +181,7 @@ namespace SysPecNSLib
 
                 );
             }
-
+            cmd.Connection.Close();
 
             return produto;
 
@@ -209,7 +215,8 @@ namespace SysPecNSLib
                 ));
             }
 
-                return produtos;
+            cmd.Connection.Close();
+            return produtos;
         }
 
         

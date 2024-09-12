@@ -55,6 +55,24 @@
             clnDataNasc = new DataGridViewTextBoxColumn();
             clnAtivo = new DataGridViewCheckBoxColumn();
             tabPageEditar = new TabPage();
+            gpbEndereco = new GroupBox();
+            btnSalvarEndereco = new Button();
+            cmbTipoEndereco = new ComboBox();
+            label14 = new Label();
+            label15 = new Label();
+            txtUf = new TextBox();
+            label12 = new Label();
+            label13 = new Label();
+            txtCidade = new TextBox();
+            txtBairro = new TextBox();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            txtComplemento = new TextBox();
+            txtNumero = new TextBox();
+            txtLogradouro = new TextBox();
+            label16 = new Label();
+            txtCep = new TextBox();
             btnCadastrarEnd = new Button();
             btnSalvar = new Button();
             label6 = new Label();
@@ -75,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvEnderecos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             tabPageEditar.SuspendLayout();
+            gpbEndereco.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -295,6 +314,7 @@
             // 
             // tabPageEditar
             // 
+            tabPageEditar.Controls.Add(gpbEndereco);
             tabPageEditar.Controls.Add(btnCadastrarEnd);
             tabPageEditar.Controls.Add(btnSalvar);
             tabPageEditar.Controls.Add(label6);
@@ -317,10 +337,188 @@
             tabPageEditar.Text = "Editar cadastro";
             tabPageEditar.UseVisualStyleBackColor = true;
             // 
+            // gpbEndereco
+            // 
+            gpbEndereco.Controls.Add(btnSalvarEndereco);
+            gpbEndereco.Controls.Add(cmbTipoEndereco);
+            gpbEndereco.Controls.Add(label14);
+            gpbEndereco.Controls.Add(label15);
+            gpbEndereco.Controls.Add(txtUf);
+            gpbEndereco.Controls.Add(label12);
+            gpbEndereco.Controls.Add(label13);
+            gpbEndereco.Controls.Add(txtCidade);
+            gpbEndereco.Controls.Add(txtBairro);
+            gpbEndereco.Controls.Add(label9);
+            gpbEndereco.Controls.Add(label10);
+            gpbEndereco.Controls.Add(label11);
+            gpbEndereco.Controls.Add(txtComplemento);
+            gpbEndereco.Controls.Add(txtNumero);
+            gpbEndereco.Controls.Add(txtLogradouro);
+            gpbEndereco.Controls.Add(label16);
+            gpbEndereco.Controls.Add(txtCep);
+            gpbEndereco.Enabled = false;
+            gpbEndereco.Location = new Point(76, 276);
+            gpbEndereco.Name = "gpbEndereco";
+            gpbEndereco.Size = new Size(589, 260);
+            gpbEndereco.TabIndex = 46;
+            gpbEndereco.TabStop = false;
+            gpbEndereco.Text = "Adicionar novo endereço";
+            // 
+            // btnSalvarEndereco
+            // 
+            btnSalvarEndereco.BackColor = Color.FromArgb(35, 84, 150);
+            btnSalvarEndereco.FlatStyle = FlatStyle.Flat;
+            btnSalvarEndereco.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnSalvarEndereco.ForeColor = Color.White;
+            btnSalvarEndereco.Location = new Point(481, 221);
+            btnSalvarEndereco.Name = "btnSalvarEndereco";
+            btnSalvarEndereco.Size = new Size(102, 23);
+            btnSalvarEndereco.TabIndex = 79;
+            btnSalvarEndereco.Text = "&Salvar endereço";
+            btnSalvarEndereco.UseVisualStyleBackColor = false;
+            btnSalvarEndereco.Click += btnSalvarEndereco_Click;
+            // 
+            // cmbTipoEndereco
+            // 
+            cmbTipoEndereco.FormattingEnabled = true;
+            cmbTipoEndereco.Items.AddRange(new object[] { "COS - Correspondência", "RES - Residencial", "COM - Comercial", "ENT - Entrega", "COB - Cobrança" });
+            cmbTipoEndereco.Location = new Point(341, 222);
+            cmbTipoEndereco.Name = "cmbTipoEndereco";
+            cmbTipoEndereco.Size = new Size(121, 23);
+            cmbTipoEndereco.TabIndex = 78;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.ForeColor = Color.Black;
+            label14.Location = new Point(341, 204);
+            label14.Name = "label14";
+            label14.Size = new Size(98, 15);
+            label14.TabIndex = 77;
+            label14.Text = "Tipo de Endereço";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = Color.Black;
+            label15.Location = new Point(250, 204);
+            label15.Name = "label15";
+            label15.Size = new Size(21, 15);
+            label15.TabIndex = 76;
+            label15.Text = "UF";
+            // 
+            // txtUf
+            // 
+            txtUf.Location = new Point(250, 222);
+            txtUf.Name = "txtUf";
+            txtUf.Size = new Size(63, 23);
+            txtUf.TabIndex = 75;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(23, 204);
+            label12.Name = "label12";
+            label12.Size = new Size(44, 15);
+            label12.TabIndex = 74;
+            label12.Text = "Cidade";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(250, 148);
+            label13.Name = "label13";
+            label13.Size = new Size(38, 15);
+            label13.TabIndex = 73;
+            label13.Text = "Bairro";
+            // 
+            // txtCidade
+            // 
+            txtCidade.Location = new Point(23, 222);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(179, 23);
+            txtCidade.TabIndex = 72;
+            // 
+            // txtBairro
+            // 
+            txtBairro.Location = new Point(250, 166);
+            txtBairro.Name = "txtBairro";
+            txtBairro.Size = new Size(179, 23);
+            txtBairro.TabIndex = 71;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(23, 148);
+            label9.Name = "label9";
+            label9.Size = new Size(84, 15);
+            label9.TabIndex = 70;
+            label9.Text = "Complemento";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(449, 93);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 15);
+            label10.TabIndex = 69;
+            label10.Text = "Nº";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(23, 93);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 15);
+            label11.TabIndex = 68;
+            label11.Text = "Logradouro";
+            // 
+            // txtComplemento
+            // 
+            txtComplemento.Location = new Point(23, 166);
+            txtComplemento.Name = "txtComplemento";
+            txtComplemento.Size = new Size(161, 23);
+            txtComplemento.TabIndex = 67;
+            // 
+            // txtNumero
+            // 
+            txtNumero.Location = new Point(447, 111);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(63, 23);
+            txtNumero.TabIndex = 66;
+            // 
+            // txtLogradouro
+            // 
+            txtLogradouro.Location = new Point(23, 111);
+            txtLogradouro.Name = "txtLogradouro";
+            txtLogradouro.Size = new Size(406, 23);
+            txtLogradouro.TabIndex = 65;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(23, 35);
+            label16.Name = "label16";
+            label16.Size = new Size(28, 15);
+            label16.TabIndex = 64;
+            label16.Text = "CEP";
+            // 
+            // txtCep
+            // 
+            txtCep.Location = new Point(23, 53);
+            txtCep.Name = "txtCep";
+            txtCep.Size = new Size(127, 23);
+            txtCep.TabIndex = 63;
+            // 
             // btnCadastrarEnd
             // 
-            btnCadastrarEnd.Enabled = false;
-            btnCadastrarEnd.Location = new Point(407, 254);
+            btnCadastrarEnd.Location = new Point(401, 226);
             btnCadastrarEnd.Name = "btnCadastrarEnd";
             btnCadastrarEnd.Size = new Size(191, 23);
             btnCadastrarEnd.TabIndex = 38;
@@ -330,7 +528,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(211, 254);
+            btnSalvar.Location = new Point(205, 226);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(115, 23);
             btnSalvar.TabIndex = 37;
@@ -341,7 +539,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(536, 176);
+            label6.Location = new Point(530, 148);
             label6.Name = "label6";
             label6.Size = new Size(114, 15);
             label6.TabIndex = 45;
@@ -350,7 +548,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(332, 176);
+            label5.Location = new Point(326, 148);
             label5.Name = "label5";
             label5.Size = new Size(51, 15);
             label5.TabIndex = 44;
@@ -359,7 +557,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(82, 176);
+            label4.Location = new Point(76, 148);
             label4.Name = "label4";
             label4.Size = new Size(36, 15);
             label4.TabIndex = 43;
@@ -368,7 +566,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(470, 103);
+            label3.Location = new Point(464, 75);
             label3.Name = "label3";
             label3.Size = new Size(28, 15);
             label3.TabIndex = 42;
@@ -377,7 +575,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(82, 103);
+            label2.Location = new Point(76, 75);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 41;
@@ -386,7 +584,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(82, 46);
+            label8.Location = new Point(76, 18);
             label8.Name = "label8";
             label8.Size = new Size(18, 15);
             label8.TabIndex = 40;
@@ -395,7 +593,7 @@
             // dtpDataNasc
             // 
             dtpDataNasc.Format = DateTimePickerFormat.Short;
-            dtpDataNasc.Location = new Point(536, 194);
+            dtpDataNasc.Location = new Point(530, 166);
             dtpDataNasc.MaxDate = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             dtpDataNasc.Name = "dtpDataNasc";
             dtpDataNasc.Size = new Size(135, 23);
@@ -403,35 +601,35 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(82, 194);
+            txtEmail.Location = new Point(76, 166);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(216, 23);
             txtEmail.TabIndex = 34;
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(332, 194);
+            txtTelefone.Location = new Point(326, 166);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(166, 23);
             txtTelefone.TabIndex = 35;
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(470, 121);
+            txtCpf.Location = new Point(464, 93);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(166, 23);
             txtCpf.TabIndex = 33;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(82, 121);
+            txtNome.Location = new Point(76, 93);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(349, 23);
             txtNome.TabIndex = 32;
             // 
             // txtId
             // 
-            txtId.Location = new Point(82, 64);
+            txtId.Location = new Point(76, 36);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(51, 23);
@@ -456,6 +654,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             tabPageEditar.ResumeLayout(false);
             tabPageEditar.PerformLayout();
+            gpbEndereco.ResumeLayout(false);
+            gpbEndereco.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -499,5 +699,23 @@
         private TextBox txtCpf;
         private TextBox txtNome;
         private TextBox txtId;
+        private GroupBox gpbEndereco;
+        private Button btnSalvarEndereco;
+        private ComboBox cmbTipoEndereco;
+        private Label label14;
+        private Label label15;
+        private TextBox txtUf;
+        private Label label12;
+        private Label label13;
+        private TextBox txtCidade;
+        private TextBox txtBairro;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private TextBox txtComplemento;
+        private TextBox txtNumero;
+        private TextBox txtLogradouro;
+        private Label label16;
+        private TextBox txtCep;
     }
 }

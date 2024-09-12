@@ -84,6 +84,7 @@ namespace SysPecNSLib
 
             //id do pedido
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
 
         public void AlterarStatus()
@@ -93,6 +94,7 @@ namespace SysPecNSLib
             cmd.CommandText = $"update pedidos set status = {Status} where id = {Id}";
         
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
         public void AtualizarDesconto()
@@ -101,6 +103,7 @@ namespace SysPecNSLib
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = $"update pedidos set desconto = {Desconto} where id = {Id}";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
         }
 
         public static Pedido ObterPorId(int id)
@@ -127,7 +130,7 @@ namespace SysPecNSLib
 
                     );
             }
-            
+            cmd.Connection.Close();
             return pedido;
         }
 
@@ -174,6 +177,8 @@ namespace SysPecNSLib
 
                     ));
             }
+
+            cmd.Connection.Close();
             return pedidos;
         }
 
@@ -204,6 +209,7 @@ namespace SysPecNSLib
 
                     ));
             }
+            cmd.Connection.Close();
             return pedidosCliente;
         }
 
@@ -233,6 +239,7 @@ namespace SysPecNSLib
 
                     ));
             }
+            cmd.Connection.Close();
             return pedidosUsuario;
         }
 

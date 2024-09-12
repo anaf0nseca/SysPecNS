@@ -105,6 +105,7 @@ namespace SysPecNSLib
                 Id = dr.GetInt32(0);
             }
 
+            cmd.Connection.Close();
 
         }
 
@@ -131,6 +132,8 @@ namespace SysPecNSLib
                    );
 
             }
+            cmd.Connection.Close();
+
             return cliente;
         }
 
@@ -164,6 +167,8 @@ namespace SysPecNSLib
 
                );
             }
+            comandosSQL.Connection.Close();
+
             //clientes
             return lista;
 

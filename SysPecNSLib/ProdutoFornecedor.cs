@@ -31,6 +31,8 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spid_fornecedor", Fornecedor);
 
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
 
         }
 
@@ -38,6 +40,7 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Connection.Close();
 
         }
 
@@ -48,6 +51,8 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"delete from usuarios where id =";
             cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
 
         }
     }

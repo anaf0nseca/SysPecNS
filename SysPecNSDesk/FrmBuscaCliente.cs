@@ -43,7 +43,6 @@ namespace SysPecNSDesk
                 dgvClientes.Rows[cont].Cells[3].Value = cliente.Telefone;
                 dgvClientes.Rows[cont].Cells[4].Value = cliente.Email;
                 dgvClientes.Rows[cont].Cells[5].Value = cliente.Data_Nasc;
-                dgvClientes.Rows[cont].Cells[6].Value = cliente.Ativo;
 
                 //Soma +1 ao contador de cliente
                 cont++;

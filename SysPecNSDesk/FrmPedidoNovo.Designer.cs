@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             grbIdentificacao = new GroupBox();
             button1 = new Button();
             btnInserePedido = new Button();
@@ -197,7 +197,7 @@
             // 
             lblMaxDesconto.AutoSize = true;
             lblMaxDesconto.ForeColor = Color.Red;
-            lblMaxDesconto.Location = new Point(373, 123);
+            lblMaxDesconto.Location = new Point(381, 123);
             lblMaxDesconto.Name = "lblMaxDesconto";
             lblMaxDesconto.Size = new Size(23, 15);
             lblMaxDesconto.TabIndex = 16;
@@ -387,9 +387,9 @@
             // 
             // clnValorUnit
             // 
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            clnValorUnit.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            clnValorUnit.DefaultCellStyle = dataGridViewCellStyle1;
             clnValorUnit.Frozen = true;
             clnValorUnit.HeaderText = "Valor Unit.";
             clnValorUnit.Name = "clnValorUnit";
@@ -398,8 +398,8 @@
             // 
             // clnQuantidade
             // 
-            dataGridViewCellStyle6.NullValue = null;
-            clnQuantidade.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.NullValue = null;
+            clnQuantidade.DefaultCellStyle = dataGridViewCellStyle2;
             clnQuantidade.Frozen = true;
             clnQuantidade.HeaderText = "Qtde";
             clnQuantidade.Name = "clnQuantidade";
@@ -408,9 +408,9 @@
             // 
             // clnDescontoItem
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            clnDescontoItem.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            clnDescontoItem.DefaultCellStyle = dataGridViewCellStyle3;
             clnDescontoItem.Frozen = true;
             clnDescontoItem.HeaderText = "Desconto";
             clnDescontoItem.Name = "clnDescontoItem";
@@ -419,9 +419,9 @@
             // 
             // clnTotalItem
             // 
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            clnTotalItem.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            clnTotalItem.DefaultCellStyle = dataGridViewCellStyle4;
             clnTotalItem.Frozen = true;
             clnTotalItem.HeaderText = "Total";
             clnTotalItem.Name = "clnTotalItem";
@@ -486,6 +486,7 @@
             btnFecharPedido.TabIndex = 2;
             btnFecharPedido.Text = "&Fechar Pedido";
             btnFecharPedido.UseVisualStyleBackColor = false;
+            btnFecharPedido.Click += btnFecharPedido_Click;
             // 
             // txtDescontoPedido
             // 
@@ -494,6 +495,7 @@
             txtDescontoPedido.Name = "txtDescontoPedido";
             txtDescontoPedido.Size = new Size(132, 23);
             txtDescontoPedido.TabIndex = 1;
+            txtDescontoPedido.Text = "0";
             txtDescontoPedido.TextAlign = HorizontalAlignment.Right;
             // 
             // txtDescontoItens
