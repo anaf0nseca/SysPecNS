@@ -322,6 +322,8 @@ namespace SysPecNSDesk
             Controls.Add(label1);
             Controls.Add(btnInserir);
             Controls.Add(dgvUsuarios);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmUsuario";

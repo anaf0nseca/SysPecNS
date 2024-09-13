@@ -114,7 +114,7 @@ namespace SysPecNSDesk
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //É possível utilizar um método como parêmetro, que retorne um valor booleano
+            //É possível utilizar um método como parâmetro, que retorne um valor booleano
             if (VerificaControles())
             {
                 var msg = MessageBox.Show(

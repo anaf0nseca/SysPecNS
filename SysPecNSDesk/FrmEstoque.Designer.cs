@@ -42,7 +42,7 @@
             gpEstoque = new GroupBox();
             label7 = new Label();
             txtDisponivelEstoque = new TextBox();
-            button1 = new Button();
+            btnInserirEntrada = new Button();
             label3 = new Label();
             txtEntradaEstoque = new TextBox();
             label4 = new Label();
@@ -55,6 +55,7 @@
             txtDescricao = new TextBox();
             txtCodBarras = new TextBox();
             txtId = new TextBox();
+            btnCancelar = new Button();
             txtBusca = new TextBox();
             label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
@@ -145,7 +146,7 @@
             // 
             gpEstoque.Controls.Add(label7);
             gpEstoque.Controls.Add(txtDisponivelEstoque);
-            gpEstoque.Controls.Add(button1);
+            gpEstoque.Controls.Add(btnInserirEntrada);
             gpEstoque.Controls.Add(label3);
             gpEstoque.Controls.Add(txtEntradaEstoque);
             gpEstoque.Controls.Add(label4);
@@ -161,7 +162,7 @@
             gpEstoque.Enabled = false;
             gpEstoque.Location = new Point(13, 404);
             gpEstoque.Name = "gpEstoque";
-            gpEstoque.Size = new Size(673, 212);
+            gpEstoque.Size = new Size(636, 212);
             gpEstoque.TabIndex = 10;
             gpEstoque.TabStop = false;
             gpEstoque.Text = "Entrada em Estoque";
@@ -185,15 +186,15 @@
             txtDisponivelEstoque.TabIndex = 37;
             txtDisponivelEstoque.TextAlign = HorizontalAlignment.Right;
             // 
-            // button1
+            // btnInserirEntrada
             // 
-            button1.Location = new Point(505, 157);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 40);
-            button1.TabIndex = 36;
-            button1.Text = "&Inserir";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnInserirEntrada.Location = new Point(505, 157);
+            btnInserirEntrada.Name = "btnInserirEntrada";
+            btnInserirEntrada.Size = new Size(104, 40);
+            btnInserirEntrada.TabIndex = 36;
+            btnInserirEntrada.Text = "&Inserir";
+            btnInserirEntrada.UseVisualStyleBackColor = true;
+            btnInserirEntrada.Click += button1_Click;
             // 
             // label3
             // 
@@ -217,7 +218,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label4.Location = new Point(505, 92);
+            label4.Location = new Point(490, 92);
             label4.Name = "label4";
             label4.Size = new Size(103, 15);
             label4.TabIndex = 33;
@@ -226,7 +227,7 @@
             // txtUnidadeVenda
             // 
             txtUnidadeVenda.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            txtUnidadeVenda.Location = new Point(505, 110);
+            txtUnidadeVenda.Location = new Point(490, 110);
             txtUnidadeVenda.Name = "txtUnidadeVenda";
             txtUnidadeVenda.ReadOnly = true;
             txtUnidadeVenda.Size = new Size(131, 23);
@@ -256,7 +257,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label6.Location = new Point(199, 92);
+            label6.Location = new Point(188, 92);
             label6.Name = "label6";
             label6.Size = new Size(59, 15);
             label6.TabIndex = 29;
@@ -285,7 +286,7 @@
             // txtDescricao
             // 
             txtDescricao.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            txtDescricao.Location = new Point(201, 110);
+            txtDescricao.Location = new Point(190, 110);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.ReadOnly = true;
             txtDescricao.Size = new Size(268, 23);
@@ -309,6 +310,19 @@
             txtId.Size = new Size(47, 23);
             txtId.TabIndex = 26;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Transparent;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Image = Properties.Resources.Cancel;
+            btnCancelar.Location = new Point(655, 571);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(40, 45);
+            btnCancelar.TabIndex = 39;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // txtBusca
             // 
             txtBusca.Location = new Point(12, 24);
@@ -329,9 +343,12 @@
             // 
             // FrmEstoque
             // 
+            AcceptButton = btnInserirEntrada;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(698, 628);
+            Controls.Add(btnCancelar);
             Controls.Add(label8);
             Controls.Add(txtBusca);
             Controls.Add(gpEstoque);
@@ -339,6 +356,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmEstoque";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Estoque de Produtos";
             Load += FrmEstoque_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
@@ -372,11 +390,12 @@
         private TextBox txtEntradaEstoque;
         private Label label4;
         private TextBox txtUnidadeVenda;
-        private Button button1;
+        private Button btnInserirEntrada;
         private Label label3;
         private Label label7;
         private TextBox txtDisponivelEstoque;
         private TextBox txtBusca;
         private Label label8;
+        private Button btnCancelar;
     }
 }

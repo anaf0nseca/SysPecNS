@@ -94,38 +94,65 @@ namespace SysPecNSDesk
         private void button1_Click(object sender, EventArgs e)
         {
             int id = int.Parse(txtId.Text);
-            double entrada = double.Parse(txtEntradaEstoque.Text);
-            double estoqueMin = double.Parse(txtEstoqueMin.Text);
+            double entrada = double.Parse(txtDisponivelEstoque.Text);
+            entrada += double.Parse(txtEntradaEstoque.Text);
+            string estqMin = txtEstoqueMin.Text;
+            double estqDisponivel = double.Parse(txtDisponivelEstoque.Text);
+            string qtdeEstoqueMin = estqMin.Substring(0, 3);
+            double estoqueMin = double.Parse(qtdeEstoqueMin);
 
-            if (entrada < estoqueMin)
+            if (entrada < estoqueMin && estqDisponivel < estoqueMin)
             {
-                MessageBox.Show($"É necessário inserir no mínimo {txtEstoqueMin.Text} {txtUnidadeVenda.Text}s desse produto no estoque.");
+                MessageBox.Show($"É necessário inserir no mínimo {txtEstoqueMin.Text} desse produto no estoque.");
             }
-            else 
-            { 
-            
-            Estoque estoque = new(
-                Produto.ObterPorId(id),
-                entrada,
-                DateTime.Now
-                );
+            else
+            {
 
-            estoque.Atualizar(id, entrada);
+                Estoque estoque = new(
+                    Produto.ObterPorId(id),
+                    entrada,
+                    DateTime.Now
+                    );
+
+                estoque.Atualizar(id, entrada);
 
 
+                MessageBox.Show($"O produto {txtDescricao.Text} foi inserido no estoque, agora com {estoque.Quantidade} {txtUnidadeVenda.Text}s disponíveis para compra!");
+                txtId.Clear();
+                txtCodBarras.Clear();
+                txtDescricao.Clear();
+                txtUnidadeVenda.Clear();
+                txtEstoqueMin.Clear();
+                txtDisponivelEstoque.Clear();
+                txtEntradaEstoque.Clear();
 
-            MessageBox.Show($"O produto {txtDescricao.Text} foi inserido no estoque, com {txtEntradaEstoque.Text} {txtUnidadeVenda.Text}s disponíveis para compra!");
-            txtId.Clear();
-            txtCodBarras.Clear();
-            txtDescricao.Clear();
-            txtUnidadeVenda.Clear();
-            txtEstoqueMin.Clear();
-            txtDisponivelEstoque.Clear();
-            txtEntradaEstoque.Clear();
+                FrmEstoque_Load(sender, e);
 
             }
 
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //verifica se foi inserido algum valor na caixa de entrada de estoque
+            if (txtEntradaEstoque.Text != string.Empty)
+            {
+                //Exibe uma mensagem caso o botão cancelar seja pressionado
+                var msg = MessageBox.Show(
+                    "Deseja cancelar a entrada do produto no estoque?", //Texto da mensagem 
+                    "Entrada em estoque", //Título da caixa de mensagem
+                    MessageBoxButtons.YesNo, //Botões exibidos na caixa
+                    MessageBoxIcon.Exclamation, //Ícone exibido
+                    MessageBoxDefaultButton.Button2); //Botão padrão
+
+                if (msg == DialogResult.Yes) Close();
+            }
+            else
+            {
+                Close();
+
+            }
         }
     }
 }
