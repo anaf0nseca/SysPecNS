@@ -20,12 +20,12 @@ namespace SysPecNSDesk
 
         private void FrmEstoque_Load(object sender, EventArgs e)
         {
-
+            CarregaGrid();
         }
 
         private void CarregaGrid(string nome = "")
         {
-            var lista = Produto.ObterLista();
+            var lista = Produto.ObterLista(nome);
             dgvProdutos.Rows.Clear();
             int cont = 0;
             foreach (var produto in lista)
@@ -47,5 +47,28 @@ namespace SysPecNSDesk
 
         }
 
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            //Se algo for digitado no campo, o texto é utilizado como parâmetro da classe CarregaGrid
+            if (txtBusca.Text.Length > 0)
+            {
+                CarregaGrid(txtBusca.Text);
+            }
+            else
+            {
+                //Se nada for digitado, a classe é executada normalmente e exibe todos os clientes
+                CarregaGrid();
+            }
+        }
+
+        private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = 0;
+            //Identifica a linha atual(que foi clicada)
+            int posicaoLinha = dgvProdutos.CurrentRow.Index;
+
+            //Atribui o valor da celula 0 da linha atual(id)
+            id = Convert.ToInt32(dgvProdutos.Rows[posicaoLinha].Cells[0].Value);
+        }
     }
 }

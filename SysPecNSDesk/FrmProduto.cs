@@ -37,9 +37,9 @@ namespace SysPecNSDesk
 
         }
 
-        private void CarregaGrid(string nome = "")
+        private void CarregaGrid(string descricao = "")
         {
-            var lista = Produto.ObterLista();
+            var lista = Produto.ObterLista(descricao);
             dgvProdutos.Rows.Clear();
             int cont = 0;
             foreach (var produto in lista)

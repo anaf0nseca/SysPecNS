@@ -104,5 +104,12 @@ namespace SysPecNSDesk
             frmPedidoNovo.Show();
 
         }
+
+        private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEstoque frmEstoque = new FrmEstoque();
+            frmEstoque.MdiParent = this;   
+            frmEstoque.Show();
+        }
     }
 }

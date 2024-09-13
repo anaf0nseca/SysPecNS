@@ -188,13 +188,23 @@ namespace SysPecNSLib
 
         }
 
-        public static List<Produto> ObterLista()
+        public static List<Produto> ObterLista(string? descricao = "")
         {
             //método construtor vazio, 
             List<Produto> produtos = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from produtos order by descricao";
+
+            if (descricao == "")
+            {
+                cmd.CommandText = "select * from produtos order by descricao";
+            }
+            else
+            {
+                cmd.CommandText = $"select * from produtos where descricao like '%{descricao}%' order by descricao";
+            }
+
+
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {

@@ -52,6 +52,7 @@
             sairToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            estoqueToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -83,7 +84,7 @@
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem, listaToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(122, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "&Clientes";
             // 
             // novoToolStripMenuItem
@@ -102,30 +103,30 @@
             // 
             // produtosToolStripMenuItem
             // 
-            produtosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem1, listarToolStripMenuItem, fornecedoresToolStripMenuItem });
+            produtosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem1, listarToolStripMenuItem, fornecedoresToolStripMenuItem, estoqueToolStripMenuItem });
             produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            produtosToolStripMenuItem.Size = new Size(122, 22);
+            produtosToolStripMenuItem.Size = new Size(180, 22);
             produtosToolStripMenuItem.Text = "&Produtos";
             produtosToolStripMenuItem.Click += produtosToolStripMenuItem_Click;
             // 
             // novoToolStripMenuItem1
             // 
             novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            novoToolStripMenuItem1.Size = new Size(145, 22);
+            novoToolStripMenuItem1.Size = new Size(180, 22);
             novoToolStripMenuItem1.Text = "&Novo";
             novoToolStripMenuItem1.Click += novoToolStripMenuItem1_Click;
             // 
             // listarToolStripMenuItem
             // 
             listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            listarToolStripMenuItem.Size = new Size(145, 22);
+            listarToolStripMenuItem.Size = new Size(180, 22);
             listarToolStripMenuItem.Text = "&Listar";
             // 
             // fornecedoresToolStripMenuItem
             // 
             fornecedoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaToolStripMenuItem1 });
             fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            fornecedoresToolStripMenuItem.Size = new Size(145, 22);
+            fornecedoresToolStripMenuItem.Size = new Size(180, 22);
             fornecedoresToolStripMenuItem.Text = "Fornecedores";
             fornecedoresToolStripMenuItem.Click += fornecedoresToolStripMenuItem_Click;
             // 
@@ -139,7 +140,7 @@
             // 
             usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem2, listarToolStripMenuItem1 });
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(122, 22);
+            usuariosToolStripMenuItem.Size = new Size(180, 22);
             usuariosToolStripMenuItem.Text = "&Usuários";
             usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
             // 
@@ -219,6 +220,13 @@
             toolStripStatusLabel1.Size = new Size(12, 17);
             toolStripStatusLabel1.Text = "-";
             // 
+            // estoqueToolStripMenuItem
+            // 
+            estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
+            estoqueToolStripMenuItem.Size = new Size(180, 22);
+            estoqueToolStripMenuItem.Text = "Estoque";
+            estoqueToolStripMenuItem.Click += estoqueToolStripMenuItem_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -268,5 +276,6 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripMenuItem novoToolStripMenuItem3;
         private ToolStripMenuItem listaDePedidosToolStripMenuItem;
+        private ToolStripMenuItem estoqueToolStripMenuItem;
     }
 }

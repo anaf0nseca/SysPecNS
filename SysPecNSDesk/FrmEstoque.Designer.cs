@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dgvProdutos = new DataGridView();
             clnId = new DataGridViewTextBoxColumn();
             clnCodigoBarras = new DataGridViewTextBoxColumn();
@@ -40,6 +40,8 @@
             clnDesconto = new DataGridViewTextBoxColumn();
             clnDataCadastro = new DataGridViewTextBoxColumn();
             gpEstoque = new GroupBox();
+            label7 = new Label();
+            textBox3 = new TextBox();
             button1 = new Button();
             label3 = new Label();
             textBox2 = new TextBox();
@@ -53,8 +55,8 @@
             txtDescricao = new TextBox();
             txtCodBarras = new TextBox();
             txtId = new TextBox();
-            textBox3 = new TextBox();
-            label7 = new Label();
+            txtBusca = new TextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             gpEstoque.SuspendLayout();
             SuspendLayout();
@@ -66,13 +68,14 @@
             dgvProdutos.BackgroundColor = Color.FromArgb(29, 96, 150);
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { clnId, clnCodigoBarras, clnDescricao, clnValorUnitario, clnUnidadeVenda, clnCategoria, clnEstoqueMinimo, clnDesconto, clnDataCadastro });
-            dgvProdutos.Location = new Point(12, 12);
+            dgvProdutos.Location = new Point(13, 53);
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.RowHeadersVisible = false;
-            dgvProdutos.ScrollBars = ScrollBars.Horizontal;
+            dgvProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProdutos.Size = new Size(673, 332);
             dgvProdutos.TabIndex = 9;
+            dgvProdutos.CellDoubleClick += dgvProdutos_CellDoubleClick;
             // 
             // clnId
             // 
@@ -97,9 +100,9 @@
             // 
             // clnValorUnitario
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            clnValorUnitario.DefaultCellStyle = dataGridViewCellStyle1;
             clnValorUnitario.HeaderText = "Valor Unitário";
             clnValorUnitario.Name = "clnValorUnitario";
             clnValorUnitario.ReadOnly = true;
@@ -155,12 +158,30 @@
             gpEstoque.Controls.Add(txtDescricao);
             gpEstoque.Controls.Add(txtCodBarras);
             gpEstoque.Controls.Add(txtId);
-            gpEstoque.Location = new Point(12, 365);
+            gpEstoque.Location = new Point(13, 404);
             gpEstoque.Name = "gpEstoque";
             gpEstoque.Size = new Size(673, 212);
             gpEstoque.TabIndex = 10;
             gpEstoque.TabStop = false;
             gpEstoque.Text = "Entrada em Estoque";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label7.Location = new Point(199, 149);
+            label7.Name = "label7";
+            label7.Size = new Size(128, 15);
+            label7.TabIndex = 38;
+            label7.Text = "Disponível em estoque";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(199, 167);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(128, 23);
+            textBox3.TabIndex = 37;
             // 
             // button1
             // 
@@ -281,29 +302,31 @@
             txtId.Size = new Size(47, 23);
             txtId.TabIndex = 26;
             // 
-            // textBox3
+            // txtBusca
             // 
-            textBox3.Location = new Point(199, 167);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(128, 23);
-            textBox3.TabIndex = 37;
+            txtBusca.Location = new Point(12, 24);
+            txtBusca.Name = "txtBusca";
+            txtBusca.Size = new Size(674, 23);
+            txtBusca.TabIndex = 42;
+            txtBusca.TextChanged += txtBusca_TextChanged;
             // 
-            // label7
+            // label8
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label7.Location = new Point(199, 149);
-            label7.Name = "label7";
-            label7.Size = new Size(128, 15);
-            label7.TabIndex = 38;
-            label7.Text = "Disponível em estoque";
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(13, 6);
+            label8.Name = "label8";
+            label8.Size = new Size(88, 15);
+            label8.TabIndex = 39;
+            label8.Text = "Buscar produto";
             // 
             // FrmEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(698, 588);
+            ClientSize = new Size(698, 628);
+            Controls.Add(label8);
+            Controls.Add(txtBusca);
             Controls.Add(gpEstoque);
             Controls.Add(dgvProdutos);
             MaximizeBox = false;
@@ -315,6 +338,7 @@
             gpEstoque.ResumeLayout(false);
             gpEstoque.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -345,5 +369,7 @@
         private Label label3;
         private Label label7;
         private TextBox textBox3;
+        private TextBox txtBusca;
+        private Label label8;
     }
 }
