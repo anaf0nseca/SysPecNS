@@ -27,22 +27,30 @@ namespace SysPecNSDesk
 
         private void FrmPedidoNovo_Load(object sender, EventArgs e)
         {
+            //Identifica o ID e o nome do usuário logado e preenche o campo de usuário
             txtUsuario.Text = Program.UsuarioLogado.Id + " - " + Program.UsuarioLogado.Nome;
 
         }
 
         private void btnInserePedido_Click(object sender, EventArgs e)
         {
+            //Insere o pedido como aberto
             Pedido pedido = new(
                 Program.UsuarioLogado,
                 Cliente.ObterPorId(int.Parse(txtIdCliente.Text)));
+
             pedido.Inserir();
+
+            //Libera os campos para inserção de itens e fechamento do pedido
             txtIdPedido.Text = pedido.Id.ToString();
             grbItens.Enabled = true;
-            grbIdentificacao.Enabled = false;
             btnFecharPedido.Enabled = true;
             txtDescontoPedido.Enabled = true;
             txtCodBarras.Focus();
+
+            //Impede que os campos de usuário e cliente sejam alterados
+            grbIdentificacao.Enabled = false;
+
 
 
         }
@@ -74,16 +82,23 @@ namespace SysPecNSDesk
 
                 //Soma +1 ao contador de cliente
                 cont++;
+
+                //a cada item inserido, o valor total é atualizado
                 total += (item.ValorUnit * item.Quantidade) - item.Desconto;
+
+                //a cada item inserido, o valor de desconto total dos itens é atualizado
                 desconto += item.Desconto;
 
             }
 
+            //preenche o campo de valor total dos itens já incluindo os descontos
             textBox1.Text = total.ToString("#0.00");
+            //preenche o campo com o valor total de desconto aplicado em todos os itens
             txtDescontoItens.Text = desconto.ToString("#0.00");
+            //preenche o campo com o substotal, sem considerar os descontos
             txtSubtotal.Text = (total + desconto).ToString("#0.00");
+            //Preenche o campo do total a ser pago, sem considerar um possível desconto aplicado sob o valor total do pedido
             txtTotal.Text = total.ToString("#0.00");
-            //txtDescontoPedido.Text = ;
 
         }
 
