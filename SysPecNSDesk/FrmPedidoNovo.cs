@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -127,8 +128,19 @@ namespace SysPecNSDesk
         {
             //Converte o valor inserido no campo de desconto do item para double
             double descontoItem = Convert.ToDouble(txtDescontoItem.Text);
+
+            Produto produto = Produto.ObterPorId(txtCodBarras.Text);
+            Estoque estoque = Estoque.ObterPorProduto(produto.Id);
+            double qtdeProduto = double.Parse(txtQuantidade.Text);
+
+            if(qtdeProduto > estoque.Quantidade)
+            {
+                MessageBox.Show($"Não é possível incluir essa quantidade, há {estoque.Quantidade} {produto.UnidadeVenda}s desse produto disponíveis em estoque.");
+            }
+
+            
             //compara o valor de desconto do item com o valor máximo permitido
-            if (descontoItem > (produto.ValorUnit * produto.ClasseDesconto))
+            else if (descontoItem > (produto.ValorUnit * produto.ClasseDesconto))
             {
                 MessageBox.Show("Não é possível aplicar esse valor de desconto!");
             }
@@ -203,8 +215,15 @@ namespace SysPecNSDesk
         private void btnFecharPedido_Click(object sender, EventArgs e)
         {
             string status = "F";
-            string desconto = txtTotal.Text;
-            desconto = desconto.Replace(',', '.');
+            string descontoPedido = txtDescontoPedido.Text;
+            string descontoItens = txtDescontoItens.Text;
+            Regex.Replace(descontoPedido, "[^0-9a-zA-Z]+", "");
+            Regex.Replace(descontoItens, "[^0-9a-zA-Z]+", "");
+
+
+            double desconto = double.Parse(descontoPedido)  + double.Parse(descontoItens);
+
+
           
             Pedido pedido = new(
                 Convert.ToInt32(txtIdPedido.Text),
@@ -214,7 +233,7 @@ namespace SysPecNSDesk
                );
 
             pedido.AlterarStatus(Convert.ToInt32(txtIdPedido.Text), status);
-            pedido.AtualizarDesconto(Convert.ToInt32(txtIdPedido.Text), double.Parse(desconto));
+            pedido.AtualizarDesconto(Convert.ToInt32(txtIdPedido.Text), desconto);
 
             Close();
         }
