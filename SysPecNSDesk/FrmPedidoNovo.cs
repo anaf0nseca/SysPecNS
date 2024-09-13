@@ -106,14 +106,23 @@ namespace SysPecNSDesk
                 {
                     txtDescontoItem.Enabled = false;
                 }
-                else
+                else 
                 {
-
                     txtDescontoItem.Enabled = true;
-                    lblMaxDesconto.Text = "R$ " + (produto.ValorUnit * produto.ClasseDesconto).ToString("#0.00");
 
+                    if (int.Parse(txtQuantidade.Text) > 1)
+                    {
+                        lblMaxDesconto.Text = "R$ " + ((produto.ValorUnit * produto.ClasseDesconto) * int.Parse(txtQuantidade.Text)).ToString("#0.00");
+                        FrmPedidoNovo_Load(sender, e);
 
+                    }
+                    else
+                    {
+                        lblMaxDesconto.Text = "R$ " + (produto.ValorUnit * produto.ClasseDesconto).ToString("#0.00");
+                    }
                 }
+               
+
                 //Após o campo do valor unitário ser preenchido pelo sistema, o valor não pode ser alterado pelo usuário
                 txtValorUnit.ReadOnly = true;
                 //O campo de quantidade recebe o foco para ser preenchido manualmente
@@ -132,15 +141,15 @@ namespace SysPecNSDesk
             Produto produto = Produto.ObterPorId(txtCodBarras.Text);
             Estoque estoque = Estoque.ObterPorProduto(produto.Id);
             double qtdeProduto = double.Parse(txtQuantidade.Text);
+            double maxDesconto = ((produto.ValorUnit * produto.ClasseDesconto) * (double.Parse(txtQuantidade.Text)));
 
-            if(qtdeProduto > estoque.Quantidade)
+
+            if (qtdeProduto > estoque.Quantidade)
             {
                 MessageBox.Show($"Não é possível incluir essa quantidade, há {estoque.Quantidade} {produto.UnidadeVenda}s desse produto disponíveis em estoque.");
             }
-
-            
             //compara o valor de desconto do item com o valor máximo permitido
-            else if (descontoItem > (produto.ValorUnit * produto.ClasseDesconto))
+            else if (descontoItem > maxDesconto)
             {
                 MessageBox.Show("Não é possível aplicar esse valor de desconto!");
             }
