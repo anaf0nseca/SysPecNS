@@ -63,12 +63,69 @@ namespace SysPecNSDesk
 
         private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
             int id = 0;
             //Identifica a linha atual(que foi clicada)
             int posicaoLinha = dgvProdutos.CurrentRow.Index;
 
             //Atribui o valor da celula 0 da linha atual(id)
             id = Convert.ToInt32(dgvProdutos.Rows[posicaoLinha].Cells[0].Value);
+
+            txtEntradaEstoque.Clear();
+            //Ativa os campos de entrada no estoque
+            gpEstoque.Enabled = true;
+
+            Produto produto = Produto.ObterPorId(id);
+
+            //Preenche os campos com as informações do produto após obtê-los através do ID
+            txtId.Text = produto.Id.ToString();
+            txtCodBarras.Text = produto.CodBarras;
+            txtDescricao.Text = produto.Descricao;
+            txtUnidadeVenda.Text = produto.UnidadeVenda;
+            txtEstoqueMin.Text = produto.EstoqueMinimo.ToString() + $" {produto.UnidadeVenda}s";
+
+            Estoque estoque = Estoque.ObterPorProduto(id);
+            txtDisponivelEstoque.Text = estoque.Quantidade.ToString();
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            double entrada = double.Parse(txtEntradaEstoque.Text);
+            double estoqueMin = double.Parse(txtEstoqueMin.Text);
+
+            if (entrada < estoqueMin)
+            {
+                MessageBox.Show($"É necessário inserir no mínimo {txtEstoqueMin.Text} {txtUnidadeVenda.Text}s desse produto no estoque.");
+            }
+            else 
+            { 
+            
+            Estoque estoque = new(
+                Produto.ObterPorId(id),
+                entrada,
+                DateTime.Now
+                );
+
+            estoque.Atualizar(id, entrada);
+
+
+
+            MessageBox.Show($"O produto {txtDescricao.Text} foi inserido no estoque, com {txtEntradaEstoque.Text} {txtUnidadeVenda.Text}s disponíveis para compra!");
+            txtId.Clear();
+            txtCodBarras.Clear();
+            txtDescricao.Clear();
+            txtUnidadeVenda.Clear();
+            txtEstoqueMin.Clear();
+            txtDisponivelEstoque.Clear();
+            txtEntradaEstoque.Clear();
+
+            }
+
+
         }
     }
 }

@@ -41,14 +41,14 @@
             clnDataCadastro = new DataGridViewTextBoxColumn();
             gpEstoque = new GroupBox();
             label7 = new Label();
-            textBox3 = new TextBox();
+            txtDisponivelEstoque = new TextBox();
             button1 = new Button();
             label3 = new Label();
-            textBox2 = new TextBox();
+            txtEntradaEstoque = new TextBox();
             label4 = new Label();
             txtUnidadeVenda = new TextBox();
             label5 = new Label();
-            textBox1 = new TextBox();
+            txtEstoqueMin = new TextBox();
             label6 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -144,20 +144,21 @@
             // gpEstoque
             // 
             gpEstoque.Controls.Add(label7);
-            gpEstoque.Controls.Add(textBox3);
+            gpEstoque.Controls.Add(txtDisponivelEstoque);
             gpEstoque.Controls.Add(button1);
             gpEstoque.Controls.Add(label3);
-            gpEstoque.Controls.Add(textBox2);
+            gpEstoque.Controls.Add(txtEntradaEstoque);
             gpEstoque.Controls.Add(label4);
             gpEstoque.Controls.Add(txtUnidadeVenda);
             gpEstoque.Controls.Add(label5);
-            gpEstoque.Controls.Add(textBox1);
+            gpEstoque.Controls.Add(txtEstoqueMin);
             gpEstoque.Controls.Add(label6);
             gpEstoque.Controls.Add(label2);
             gpEstoque.Controls.Add(label1);
             gpEstoque.Controls.Add(txtDescricao);
             gpEstoque.Controls.Add(txtCodBarras);
             gpEstoque.Controls.Add(txtId);
+            gpEstoque.Enabled = false;
             gpEstoque.Location = new Point(13, 404);
             gpEstoque.Name = "gpEstoque";
             gpEstoque.Size = new Size(673, 212);
@@ -175,13 +176,14 @@
             label7.TabIndex = 38;
             label7.Text = "Disponível em estoque";
             // 
-            // textBox3
+            // txtDisponivelEstoque
             // 
-            textBox3.Location = new Point(199, 167);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(128, 23);
-            textBox3.TabIndex = 37;
+            txtDisponivelEstoque.Location = new Point(199, 167);
+            txtDisponivelEstoque.Name = "txtDisponivelEstoque";
+            txtDisponivelEstoque.ReadOnly = true;
+            txtDisponivelEstoque.Size = new Size(128, 23);
+            txtDisponivelEstoque.TabIndex = 37;
+            txtDisponivelEstoque.TextAlign = HorizontalAlignment.Right;
             // 
             // button1
             // 
@@ -191,6 +193,7 @@
             button1.TabIndex = 36;
             button1.Text = "&Inserir";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
@@ -202,12 +205,13 @@
             label3.TabIndex = 35;
             label3.Text = "Entrada";
             // 
-            // textBox2
+            // txtEntradaEstoque
             // 
-            textBox2.Location = new Point(372, 167);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(86, 23);
-            textBox2.TabIndex = 34;
+            txtEntradaEstoque.Location = new Point(372, 167);
+            txtEntradaEstoque.Name = "txtEntradaEstoque";
+            txtEntradaEstoque.Size = new Size(86, 23);
+            txtEntradaEstoque.TabIndex = 34;
+            txtEntradaEstoque.TextAlign = HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -227,6 +231,7 @@
             txtUnidadeVenda.ReadOnly = true;
             txtUnidadeVenda.Size = new Size(131, 23);
             txtUnidadeVenda.TabIndex = 32;
+            txtUnidadeVenda.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -238,13 +243,14 @@
             label5.TabIndex = 31;
             label5.Text = "Estoque Mínimo";
             // 
-            // textBox1
+            // txtEstoqueMin
             // 
-            textBox1.Location = new Point(22, 167);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(128, 23);
-            textBox1.TabIndex = 30;
+            txtEstoqueMin.Location = new Point(22, 167);
+            txtEstoqueMin.Name = "txtEstoqueMin";
+            txtEstoqueMin.ReadOnly = true;
+            txtEstoqueMin.Size = new Size(128, 23);
+            txtEstoqueMin.TabIndex = 30;
+            txtEstoqueMin.TextAlign = HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -293,6 +299,7 @@
             txtCodBarras.ReadOnly = true;
             txtCodBarras.Size = new Size(142, 23);
             txtCodBarras.TabIndex = 24;
+            txtCodBarras.TextAlign = HorizontalAlignment.Right;
             // 
             // txtId
             // 
@@ -360,15 +367,15 @@
         private TextBox txtDescricao;
         private TextBox txtCodBarras;
         private TextBox txtId;
-        private TextBox textBox1;
+        private TextBox txtEstoqueMin;
         private Label label5;
-        private TextBox textBox2;
+        private TextBox txtEntradaEstoque;
         private Label label4;
         private TextBox txtUnidadeVenda;
         private Button button1;
         private Label label3;
         private Label label7;
-        private TextBox textBox3;
+        private TextBox txtDisponivelEstoque;
         private TextBox txtBusca;
         private Label label8;
     }
